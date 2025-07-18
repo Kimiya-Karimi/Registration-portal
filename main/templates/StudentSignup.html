@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Signup</title>
+</head>
+<body>
+    <h2>Student Signup Form</h2>
+    <form action="{{ url_for('StudentDashboard') }}" method="POST">
+        First name: <input type="text" name="fname"><br>
+        Last name: <input type="text" name="lname"><br>
+        Date of Birth (YYYY/MM/DD): <input type="text" name="dob"><br>
+        Gender: <select name="gender" required>
+        <option value="female">Female</option>
+        <option value="male">Male</option>
+        </select><br>
+        National ID: <input type="text" name="nid"><br>
+        Student ID: <input type="text" name="sid"><br>
+        <button type="submit">Signup</button>
+    </form>
+</body>
+</html>

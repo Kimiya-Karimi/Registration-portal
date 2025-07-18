@@ -1,0 +1,128 @@
+{
+    "Calculus 1": {
+        "credit": 3,
+        "capacity": 45,
+        "occupied": 1,
+        "prequisites": "None"
+    },
+    "Calculus 2": {
+        "credit": 3,
+        "capacity": 45,
+        "occupied": 1,
+        "prequisites": "Calculus 1"
+    },
+    "Programming": {
+        "credit": 3,
+        "capacity": 40,
+        "occupied": 1,
+        "prequisites": "None"
+    },
+    "Advanced Programming": {
+        "credit": 4,
+        "capacity": 40,
+        "occupied": 1,
+        "prequisites": "Programming"
+    },
+    "Probability": {
+        "credit": 3,
+        "capacity": 40,
+        "occupied": 0,
+        "prequisites": "Calculus 1"
+    },
+    "Physics 1": {
+        "credit": 3,
+        "capacity": 35,
+        "occupied": 0,
+        "prequisites": "None"
+    },
+    "Physics 2": {
+        "credit": 3,
+        "capacity": 30,
+        "occupied": 0,
+        "prequisites": "Physics 1"
+    },
+    "English": {
+        "credit": 3,
+        "capacity": 40,
+        "occupied": 0,
+        "prequisites": "None"
+    },
+    "Data Structures And Algorithms": {
+        "credit": 4,
+        "capacity": 30,
+        "occupied": 0,
+        "prequisites": "Advanced Programming"
+    },
+    "Foundation Of Mathematics": {
+        "credit": 3,
+        "capacity": 40,
+        "occupied": 0,
+        "prequisites": "Calculus 1"
+    },
+    "Computer Workshop": {
+        "credit": 1,
+        "capacity": 20,
+        "occupied": 0,
+        "prequisites": "None"
+    },
+    "Foundation Of Numerical Analysis": {
+        "credit": 3,
+        "capacity": 45,
+        "occupied": 1,
+        "prequisites": "Calculus 2"
+    },
+    "Differential Equations": {
+        "credit": 3,
+        "capacity": 35,
+        "occupied": 1,
+        "prequisites": "Calculus 2"
+    },
+    "Database": {
+        "credit": 4,
+        "capacity": 30,
+        "occupied": 0,
+        "prequisites": "Data Structures And Algorithms"
+    },
+    "Foundation Of Combinatorics": {
+        "credit": 3,
+        "capacity": 30,
+        "occupied": 0,
+        "prequisites": "Foundation Of Mathematics"
+    },
+    "Basics Of Economics": {
+        "credit": 3,
+        "capacity": 40,
+        "occupied": 0,
+        "prequisites": "None"
+    },
+    "Sports": {
+        "credit": 1,
+        "capacity": 20,
+        "occupied": 0,
+        "prequisites": "None"
+    },
+    "Foundation Of Matrices And Linear Algebra": {
+        "credit": 3,
+        "capacity": 35,
+        "occupied": 0,
+        "prequisites": "Foundation Of Mathematics"
+    },
+    "Numerical Linear Algebra": {
+        "credit": 3,
+        "capacity": 40,
+        "occupied": 0,
+        "prequisites": "Foundation Of Matrices And Linear Algebra"
+    },
+    "Chemistry": {
+        "credit": 3,
+        "capacity": "40",
+        "occupied": 0,
+        "prequisites": "None"
+    },
+    "Literature": {
+        "credit": 3,
+        "capacity": "40",
+        "occupied": 0,
+        "prequisites": "None"
+    }
+}

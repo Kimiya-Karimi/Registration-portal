@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='students.css') }}">
+</head>
+<body>
+<h1>Students:</h1>
+    <ul>
+    {% for sid, info in students.items() %}
+      <li>{{ sid }} - {{ info.name }} ({{ info.major }})</li>
+    {% endfor %}
+    </ul>
+    
+</body>
+</html>

@@ -1,0 +1,86 @@
+{
+    "Saturday": {
+        "8-10": [
+            "Calculus 1",
+            "Chemistry"
+        ],
+        "10-12": [
+            "Probability",
+            "Foundation Of Combinatorics"
+        ],
+        "12-14": [
+            "Calculus 2"
+        ],
+        "14-16": [
+            "Differential Equations"
+        ],
+        "16-18": []
+    },
+    "Sunday": {
+        "8-10": [
+            "Computer Workshop"
+        ],
+        "10-12": [
+            "Foundation Of Numerical Analysis"
+        ],
+        "12-14": [
+            "English"
+        ],
+        "14-16": [],
+        "16-18": [
+            "Physics 1",
+            "Foundation Of Matrices And Linear Algebra"
+        ]
+    },
+    "Monday": {
+        "8-10": [
+            "Foundation Of Mathematics"
+        ],
+        "10-12": [
+            "Data Structures And Algorithms",
+            "Physics 2"
+        ],
+        "12-14": [
+            "Calculus 2"
+        ],
+        "14-16": [],
+        "16-18": [
+            "Advanced Programming"
+        ]
+    },
+    "Tuesday": {
+        "8-10": [
+            "Programming"
+        ],
+        "10-12": [
+            "Physics 2",
+            "Chemistry"
+        ],
+        "12-14": [],
+        "14-16": [
+            "Database",
+            "Numerical Linear Algebra"
+        ],
+        "16-18": [
+            "Programming",
+            "Physics 1"
+        ]
+    },
+    "Wednesday": {
+        "8-10": [
+            "Foundation Of Combinatorics"
+        ],
+        "10-12": [
+            "Foundation Of Mathematics"
+        ],
+        "12-14": [
+            "Sports"
+        ],
+        "14-16": [
+            "Basics Of Economics"
+        ],
+        "16-18": [
+            "Literature"
+        ]
+    }
+}

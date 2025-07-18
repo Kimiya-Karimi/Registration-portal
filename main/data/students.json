@@ -1,0 +1,73 @@
+{
+    "1403010121006": {
+        "first name": "teststudent",
+        "last name": "testlastname",
+        "user ID": "tempstudent",
+        "password": "pass123",
+        "date of birth": "2005/10/09",
+        "gender": "female",
+        "national ID": "2581720301",
+        "student ID": "1403010121006",
+        "course list": [
+            "Calculus 1",
+            "Calculus 2",
+            "Foundation Of Numerical Analysis",
+            "Differential Equations",
+            "Programming",
+            "Advanced Programming"
+        ],
+        "courses": {
+            "Saturday": {
+                "8-10": [
+                    "Calculus 1"
+                ],
+                "10-12": [],
+                "12-14": [
+                    "Calculus 2"
+                ],
+                "14-16": [
+                    "Differential Equations"
+                ],
+                "16-18": []
+            },
+            "Sunday": {
+                "8-10": [],
+                "10-12": [
+                    "Foundation Of Numerical Analysis"
+                ],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Monday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [
+                    "Calculus 2"
+                ],
+                "14-16": [],
+                "16-18": [
+                    "Advanced Programming"
+                ]
+            },
+            "Tuesday": {
+                "8-10": [
+                    "Programming"
+                ],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": [
+                    "Programming"
+                ]
+            },
+            "Wednesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            }
+        }
+    }
+}
