@@ -9,7 +9,7 @@
 <body>
     <div class="login-container">
         <h2>Student Login</h2>
-        <form action="{{ url_for('StudentDashboard') }}" method="post">
+        <form action="{{ url_for('StudentLogin') }}" method="post">
             <input type="text" name="StudentID" placeholder="StudentID">
             <input type="password" name="password" placeholder="Password">
             <input type="submit" value="Log in"> 
@@ -17,6 +17,13 @@
             <a href="{{ url_for('StudentSignup') }}" method="post">Sign up</a>
             </p>   
         </form>
-    </div>        
+    </div>
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    {% if message %}
+    <p style="color: green;">{{ message }}</p>
+    {% endif %}
+        
 </body>
 </html>

@@ -1,40 +1,24 @@
 {
-    "1403010121006": {
-        "first name": "teststudent",
-        "last name": "testlastname",
-        "user ID": "tempstudent",
-        "password": "pass123",
-        "date of birth": "2005/10/09",
+    "14030121008": {
+        "first name": "kimia",
+        "last name": "karimi",
+        "password": "scrypt:32768:8:1$bxAB6JvOM9cVPoCm$af5a3e6c40d20b37bcb7cdd5b687b9538b56f94b2e6bd9dd053ca7e5bd1f5cf914e93ec2046210973a04033cb83e44e1199af388dae40f0985389a8abf7550bc",
+        "date of birth": "2006/18/03",
         "gender": "female",
-        "national ID": "2581720301",
-        "student ID": "1403010121006",
-        "course list": [
-            "Calculus 1",
-            "Calculus 2",
-            "Foundation Of Numerical Analysis",
-            "Differential Equations",
-            "Programming",
-            "Advanced Programming"
-        ],
+        "national ID": "0928012557",
+        "student ID": "14030121008",
+        "course list": [],
         "courses": {
             "Saturday": {
-                "8-10": [
-                    "Calculus 1"
-                ],
+                "8-10": [],
                 "10-12": [],
-                "12-14": [
-                    "Calculus 2"
-                ],
-                "14-16": [
-                    "Differential Equations"
-                ],
+                "12-14": [],
+                "14-16": [],
                 "16-18": []
             },
             "Sunday": {
                 "8-10": [],
-                "10-12": [
-                    "Foundation Of Numerical Analysis"
-                ],
+                "10-12": [],
                 "12-14": [],
                 "14-16": [],
                 "16-18": []
@@ -42,24 +26,16 @@
             "Monday": {
                 "8-10": [],
                 "10-12": [],
-                "12-14": [
-                    "Calculus 2"
-                ],
+                "12-14": [],
                 "14-16": [],
-                "16-18": [
-                    "Advanced Programming"
-                ]
+                "16-18": []
             },
             "Tuesday": {
-                "8-10": [
-                    "Programming"
-                ],
+                "8-10": [],
                 "10-12": [],
                 "12-14": [],
                 "14-16": [],
-                "16-18": [
-                    "Programming"
-                ]
+                "16-18": []
             },
             "Wednesday": {
                 "8-10": [],
@@ -70,4 +46,4 @@
             }
         }
     }
-}
+}   

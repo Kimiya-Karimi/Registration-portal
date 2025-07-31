@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Signup</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='studentsignup.css') }}">
+    </form>
 </head>
 <body>
-    <h2>Student Signup Form</h2>
-    <form action="{{ url_for('StudentDashboard') }}" method="POST">
-        First name: <input type="text" name="fname"><br>
-        Last name: <input type="text" name="lname"><br>
-        Date of Birth (YYYY/MM/DD): <input type="text" name="dob"><br>
-        Gender: <select name="gender" required>
+    <form action="{{ url_for('StudentSignup') }}" method="post">
+        <input type="text" name="fname" placeholder="FirstName"><br>
+        <input type="text" name="lname" placeholder="LastName"><br>
+        <input type="text" name="dob"   placeholder="Date of Birthday(YYYY/MM/DD)"><br>
+        <select name="gender" placeholder="Gender" required>
         <option value="female">Female</option>
         <option value="male">Male</option>
         </select><br>
-        National ID: <input type="text" name="nid"><br>
-        Student ID: <input type="text" name="sid"><br>
+        <input type="text" name="nid" placeholder="NationalID"><br>
+        <input type="text" name="sid" placeholder="StudentID"><br>
+        <input type="password" name="password" placeholder="Password"><br>
         <button type="submit">Signup</button>
-    </form>
+            {% if error %}
+            <p style="color: red;">{{ error }}</p>
+            {% endif %}
+            {% if message %}
+            <p style="color: green;">{{ message }}</p>
+            {% endif %}   
 </body>
 </html>
