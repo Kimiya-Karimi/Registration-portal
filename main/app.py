@@ -36,7 +36,7 @@ def AdminLogin():
             error = "incorrect email or password!"
             return render_template("AdminLogin.html", error=error)
     return render_template("AdminLogin.html")
-@app.route("/StudentLogin", methods=["GET","POST"])
+@app.route("/StudentLogin", methods=["GET", "POST"])
 def StudentLogin():
     if request.method == "POST":
         StudentID = request.form.get('StudentID', '').strip()
@@ -45,21 +45,20 @@ def StudentLogin():
         if not StudentID or not password:
             return render_template("StudentLogin.html", error="Please enter both ID and password.")
 
+        if len(StudentID) != 13:
+            return render_template("StudentLogin.html", error="Student ID must be 13 digits long.")
+
         students_path = os.path.join(app.root_path, 'data', 'students.json')
         students = DataManager.load_data(students_path)
 
         if StudentID not in students:
             return render_template("StudentLogin.html", error="Student ID not found.")
 
-        if len(StudentID) != 13:
-            return render_template("StudentLogin.html", error="Student ID must be 13 digits long.")
-
         stored_hashed_password = students[StudentID]['password']
 
         if check_password_hash(stored_hashed_password, password):
             session["student_id"] = StudentID
             return redirect(url_for('StudentDashboard'))
-
         else:
             return render_template("StudentLogin.html", error="Incorrect password.")
 
