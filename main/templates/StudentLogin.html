@@ -9,12 +9,12 @@
 <body>
     <div class="login-container">
         <h2>Student Login</h2>
-        <form action="{{ url_for('StudentLogin') }}" method="post">
+        <form action="{{ url_for('StudentDashboard')}}" method= "POST">
             <input type="text" name="StudentID" placeholder="StudentID">
             <input type="password" name="password" placeholder="Password">
             <input type="submit" value="Log in"> 
             <p>Don't have an account? 
-            <a href="{{ url_for('StudentSignup') }}" method="post">Sign up</a>
+            <a href="{{ url_for('StudentSignup') }}" method="POST">Sign up</a>
             </p>   
         </form>
     </div>

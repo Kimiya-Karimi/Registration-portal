@@ -7,7 +7,9 @@
     </form>
 </head>
 <body>
-    <form action="{{ url_for('StudentSignup') }}" method="post">
+    <div class="Signup-container">
+        <h2>sign up</h2>
+        <form action="{{ url_for('StudentSignup') }}" method="POST">
         <input type="text" name="fname" placeholder="FirstName"><br>
         <input type="text" name="lname" placeholder="LastName"><br>
         <input type="text" name="dob"   placeholder="Date of Birthday(YYYY/MM/DD)"><br>

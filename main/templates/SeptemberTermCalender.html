@@ -3,10 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>SeptemberTermCalendr</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='SeptemberTermCalender.css') }}">
 </head>
 <body>
-    
+    <div class="calender-container">
+        <h2>September Term Calendar</h2><br>
+        <h3>(classes will start on Saturday,August 9)</h3>
+<table class="timetable">
+    <thead>
+        <tr>
+            <th>Time / Day</th>
+            {% for day in timetable.keys() %}
+            <th>{{ day }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% set times = ["8-10", "10-12", "12-14", "14-16", "16-18"] %}
+        {% for time in times %}
+        <tr>
+            <td>{{ time }}</td>
+            {% for day in timetable.keys() %}
+            <td>
+                {% for course in timetable[day][time] %}
+                    <div class="course-box" 
+                    onclick="openModal('{{ course }}', '{{ courses[course]['credit'] }}', '{{ courses[course]['capacity'] }}', '{{ courses[course]['occupied'] }}', '{{ courses[course]['prequisites'] }}')">
+                    {{ course }}
+                    </div>
+
+                {% endfor %}
+            </td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<div id="courseModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p><strong>Credits:</strong> <span id="modal-credit"></span></p>
+    <p><strong>Capacity:</strong> <span id="modal-capacity"></span></p>
+    <p><strong>Occupied:</strong> <span id="modal-occupied"></span></p>
+    <p><strong>Prerequisites:</strong> <span id="modal-prereq"></span></p>
+  </div>
+</div>
+
+<script>
+  function openModal(name, credit, capacity, occupied, prereq) {
+    document.getElementById("modal-title").textContent = name;
+    document.getElementById("modal-credit").textContent = credit;
+    document.getElementById("modal-capacity").textContent = capacity;
+    document.getElementById("modal-occupied").textContent = occupied;
+    document.getElementById("modal-prereq").textContent = prereq;
+    document.getElementById("courseModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("courseModal").style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    let modal = document.getElementById("courseModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>  
 </body>
 </html>

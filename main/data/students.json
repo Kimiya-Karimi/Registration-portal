@@ -7,7 +7,113 @@
         "gender": "female",
         "national ID": "0928012557",
         "student ID": "14030121008",
+        "registered_courses": [
+            "Programming"
+        ],
+        "paid_courses": [
+            "Programming"
+        ],
+        "courses": {
+            "Saturday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Sunday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Monday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Tuesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Wednesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            }
+        }
+    },
+    "14030121001": {
+        "first name": "ali",
+        "last name": "ahmadi",
+        "password": "scrypt:32768:8:1$P7QolkpH5amfn26h$fbffa55126037b657d0b914700a2f6a8fdf5719bd195aea6cf2251939c09a7573da4ac9b2d0e373b951bf161d65c5868c3a6735808164655789b6b160a2f324b",
+        "date of birth": "2006/18/03",
+        "gender": "female",
+        "national ID": "0928012556",
+        "student ID": "14030121001",
+        "registered_courses": [
+            "Programming"
+        ],
+        "paid_courses": [
+            "Programming"
+        ],
+        "courses": {
+            "Saturday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Sunday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Monday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Tuesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Wednesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            }
+        }
+    },
+    "14030121002": {
+        "first name": "zahra",
+        "last name": "amiri",
+        "password": "scrypt:32768:8:1$Vh8PqCS9BF7cQaD1$f06a49aa5cd8dd96f04764792813582c25c2a31fcac8031e0f3ddd345d1bb05e68867859dd7f7f0ddfbdfe7fdd2ae7d1a39545971b0f4b4b57547f3901c0a77a",
+        "date of birth": "2006/18/03",
+        "gender": "female",
+        "national ID": "0928012557",
+        "student ID": "14030121002",
         "course list": [],
+        "registered_courses": [],
+        "paid_courses": [],
         "courses": {
             "Saturday": {
                 "8-10": [],
@@ -46,4 +152,4 @@
             }
         }
     }
-}   
+}

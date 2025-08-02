@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='AvailableCourses.css') }}">
+</head>
+<body>
+
+<h1 style="text-align:center;">Courses List</h1>
+
+<div class="courses-container">
+  {% for course_name, info in courses.items() %}
+    <div class="course-card"
+         style="background-image: url('/static/images/{{ course_name | replace(' ', '_') | lower }}.jpg');"
+         onclick="openModal('{{ course_name }}', '{{ info.credit }}', '{{ info.capacity }}', '{{ info.occupied }}', '{{ info.prequisites }}','{{ info.price }}')">
+      <div class="glass-effect">
+        <h3>{{ course_name }}</h3>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+<div id="courseModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p><strong>Credits:</strong> <span id="modal-credit"></span></p>
+    <p><strong>Capacity:</strong> <span id="modal-capacity"></span></p>
+    <p><strong>Occupied:</strong> <span id="modal-occupied"></span></p>
+    <p><strong>Prerequisites:</strong> <span id="modal-prereq"></span></p>
+    <p><strong>price:</strong> <span id="modal-price"></span></p>
+    <button onclick="registerCourse()">Register</button>
+
+
+  </div>
+</div>
+
+
+<script>
+  function openModal(name, credit, capacity, occupied, prereq,price) {
+    document.getElementById("modal-title").textContent = name;
+    document.getElementById("modal-credit").textContent = credit;
+    document.getElementById("modal-capacity").textContent = capacity;
+    document.getElementById("modal-occupied").textContent = occupied;
+    document.getElementById("modal-prereq").textContent = prereq;
+    document.getElementById("modal-price").textContent = `$${price}`;
+    document.getElementById("courseModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("courseModal").style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    let modal = document.getElementById("courseModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  function registerCourse() {
+  const course = document.getElementById("modal-title").textContent;
+
+  fetch("/register_course", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ course: course })
+  })
+  .then(response => {
+    if (response.ok) {
+      alert("Course registered successfully!");
+      closeModal();
+    } else {
+      alert("Error registering course.");
+    }
+  });
+}
+
+</script>
+
+
+</body>
+</html>

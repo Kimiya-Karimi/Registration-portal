@@ -3,126 +3,147 @@
         "credit": 3,
         "capacity": 45,
         "occupied": 1,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 60 
     },
     "Calculus 2": {
         "credit": 3,
         "capacity": 45,
         "occupied": 1,
-        "prequisites": "Calculus 1"
+        "prequisites": "Calculus 1",
+        "price": 70 
     },
     "Programming": {
         "credit": 3,
         "capacity": 40,
         "occupied": 1,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 80
     },
     "Advanced Programming": {
         "credit": 4,
         "capacity": 40,
         "occupied": 1,
-        "prequisites": "Programming"
+        "prequisites": "Programming",
+        "price": 80
     },
     "Probability": {
         "credit": 3,
         "capacity": 40,
         "occupied": 0,
-        "prequisites": "Calculus 1"
+        "prequisites": "Calculus 1",
+        "price": 65
     },
     "Physics 1": {
         "credit": 3,
         "capacity": 35,
         "occupied": 0,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 65
     },
     "Physics 2": {
         "credit": 3,
         "capacity": 30,
         "occupied": 0,
-        "prequisites": "Physics 1"
+        "prequisites": "Physics 1",
+        "price": 70 
     },
     "English": {
         "credit": 3,
         "capacity": 40,
         "occupied": 0,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 30
     },
     "Data Structures And Algorithms": {
         "credit": 4,
         "capacity": 30,
         "occupied": 0,
-        "prequisites": "Advanced Programming"
+        "prequisites": "Advanced Programming",
+        "price": 75 
     },
     "Foundation Of Mathematics": {
         "credit": 3,
         "capacity": 40,
         "occupied": 0,
-        "prequisites": "Calculus 1"
+        "prequisites": "Calculus 1",
+        "price": 70
     },
     "Computer Workshop": {
         "credit": 1,
         "capacity": 20,
         "occupied": 0,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 65 
     },
     "Foundation Of Numerical Analysis": {
         "credit": 3,
         "capacity": 45,
         "occupied": 1,
-        "prequisites": "Calculus 2"
+        "prequisites": "Calculus 2",
+        "price": 60 
     },
     "Differential Equations": {
         "credit": 3,
         "capacity": 35,
         "occupied": 1,
-        "prequisites": "Calculus 2"
+        "prequisites": "Calculus 2",
+        "price": 60 
     },
     "Database": {
         "credit": 4,
         "capacity": 30,
         "occupied": 0,
-        "prequisites": "Data Structures And Algorithms"
+        "prequisites": "Data Structures And Algorithms",
+        "price": 70 
     },
     "Foundation Of Combinatorics": {
         "credit": 3,
         "capacity": 30,
         "occupied": 0,
-        "prequisites": "Foundation Of Mathematics"
+        "prequisites": "Foundation Of Mathematics",
+        "price": 60 
     },
     "Basics Of Economics": {
         "credit": 3,
         "capacity": 40,
         "occupied": 0,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 50
     },
     "Sports": {
         "credit": 1,
         "capacity": 20,
         "occupied": 0,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 25 
     },
     "Foundation Of Matrices And Linear Algebra": {
         "credit": 3,
         "capacity": 35,
         "occupied": 0,
-        "prequisites": "Foundation Of Mathematics"
+        "prequisites": "Foundation Of Mathematics",
+        "price": 60 
     },
     "Numerical Linear Algebra": {
         "credit": 3,
         "capacity": 40,
         "occupied": 0,
-        "prequisites": "Foundation Of Matrices And Linear Algebra"
+        "prequisites": "Foundation Of Matrices And Linear Algebra",
+        "price": 60 
     },
     "Chemistry": {
         "credit": 3,
-        "capacity": "40",
+        "capacity": 40,
         "occupied": 0,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 65 
     },
     "Literature": {
         "credit": 3,
-        "capacity": "40",
+        "capacity": 40,
         "occupied": 0,
-        "prequisites": "None"
+        "prequisites": "",
+        "price": 35 
     }
 }
