@@ -139,8 +139,15 @@ def StudentSignup():
 @app.route("/StudentDashboard",methods=["GET", "POST"])
 def StudentDashboard():
     student_id = session.get("student_id")
-    
-    return render_template("StudentDashboard.html")
+    if not student_id:
+        return redirect(url_for("StudentLogin"))
+    students_path = os.path.join(app.root_path, 'data', 'students.json')
+    students = DataManager.load_data(students_path)
+    student_data = students.get(student_id)
+    if not student_data:
+        return redirect(url_for("StudentLogin"))
+    return render_template("StudentDashboard.html", student= student_data)
+
 @app.route("/SeptemberTermCalender")
 def SeptemberTermCalender():
     timetable = DataManager.load_data("main/data/timetable.json")
