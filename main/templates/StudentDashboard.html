@@ -88,7 +88,7 @@
     <a href="#">My Course</a>
     <a href="{{url_for('registercourse')}}">Register Course</a>
     <a href="{{url_for('payment')}}">Payment</a>
-    <a href="#">Query</a>
+    <a href="{{url_for('query')}}">Query</a>
     <a href="{{url_for('FAQ')}}">Final Exam FAQ</a>
     <a href="https://playcode.io/new">Code playground</a>
     <a href="https://www.upwork.com/">Job & Intership</a>
@@ -124,10 +124,23 @@
       <button class="btn btn-danger">Logout</button>
     </div>
 
-    <!-- Cards -->
-    <div class="row mb-4">
-      <div class="col-md-3"><div class="card bg-success card-box">Open Queries</div></div>
-      <div class="col-md-3"><div class="card bg-info card-box">Assignments</div></div>
+<div class="row mb-4">
+  <div class="col-md-3">
+    <a href="{{ url_for('query') }}" class="text-white text-decoration-none">
+      <div class="card bg-success card-box shadow-sm" style="cursor: pointer;">
+  <div class="card-body text-center py-4">
+    <h5 class="card-title mb-0">Open Queries</h5>
+</div>
+  </div>
+    </a>
+      </div>
+<div class="col-md-3">
+  <a href="https://leetcode.com/problemset/" target="_blank" style="text-decoration: none;">
+    <div class="card bg-info text-white card-box p-3 text-center" role="button" style="cursor: pointer;">
+      Assignments
+    </div>
+  </a>
+</div>
       <div class="col-md-3"><div class="card bg-warning card-box">Projects</div></div>
       <div class="col-md-3"><div class="card bg-danger card-box">resources</div></div>
     </div>
@@ -155,16 +168,17 @@
     <div class="row">
       <!-- Assignments Table -->
       <div class="col-md-8">
-        <h5>Assignments</h5>
+        <h5>Assignments(new submission deadline has been set: August 25, 2025)</h5>
+        <h6>click the 'Assignments' button to submit your assignments.</h6>
         <table class="table table-bordered">
           <thead>
             <tr><th>Subject</th><th>Start</th><th>End</th><th>Status</th></tr>
           </thead>
           <tbody>
-            <tr><td>Mathematics</td><td>21.01.2020</td><td>1.06.2020</td><td><span class="badge bg-warning">Pending</span></td></tr>
-            <tr><td>Fundamentals of C++</td><td>21.02.2020</td><td>1.06.2020</td><td><span class="badge bg-success">Submitted</span></td></tr>
-            <tr><td>Java</td><td>21.02.2020</td><td>1.06.2020</td><td><span class="badge bg-success">Submitted</span></td></tr>
-            <tr><td>HTML & CSS</td><td>21.02.2020</td><td>1.06.2020</td><td><span class="badge bg-warning">Pending</span></td></tr>
+            <tr><td>Palindrome number</td><td>2025/08/06</td><td>2025/08/25</td><td><span class="badge bg-warning">Pending</span></td></tr>
+            <tr><td>jump game</td><td>2025/08/06</td><td>2025/08/25</td><td><span class="badge bg-warning">Pending</span></td></tr>
+            <tr><td>median of two sorted arrays</td><td>2025/08/06</td><td>2025/08/25</td><td><span class="badge bg-warning">Pending</span></td></tr>
+            <tr><td>reverse integer</td><td>2025/08/06</td><td>2025/08/25</td><td><span class="badge bg-warning">Pending</span></td></tr>
           </tbody>
         </table>
       </div>
@@ -195,7 +209,7 @@
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'April', 'Aug'],
         datasets: [{
           label: 'Student Progress',
-          data: [0, 0, 0, 0, 0, 0, 0, 0, 0],
+          data: [30, 40, 50, 70, 70, 60, 60, 0, 0],
           borderColor: '#0d6efd',
           backgroundColor: 'rgba(13,110,253,0.2)',
           fill: true,

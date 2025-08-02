@@ -177,8 +177,7 @@ def payment():
 def checkout():
     student_id = session.get("student_id")
     if not student_id:
-        return redirect(url_for("StudentLogin"))  # اگر توی سشن نیست به لاگین برگرد
-
+        return redirect(url_for("StudentLogin"))  
     course_name = request.form.get("course_name")
     if not course_name:
         return "Course name is missing", 400
@@ -189,11 +188,11 @@ def checkout():
     if student_id not in student_data:
         return "Student ID not found in data", 404
 
-    # افزودن درس به registered_courses اگر نیست
+    
     if course_name not in student_data[student_id].get("registered_courses", []):
         student_data[student_id]["registered_courses"].append(course_name)
 
-    # افزودن درس به paid_courses اگر نیست
+    
     if course_name not in student_data[student_id].get("paid_courses", []):
         student_data[student_id]["paid_courses"].append(course_name)
 
@@ -223,6 +222,9 @@ def payment_success():
 @app.route('/payment_failed', methods=["POST"])
 def payment_failed():
     return redirect(url_for("payment"))
+@app.route('/query', methods=["GET","POST"])
+def query():
+    return render_template("query.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

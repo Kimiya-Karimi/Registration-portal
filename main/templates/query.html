@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Final Exam</title>
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      direction: rtl;
+      background-color: #f8f9fa;
+    }
+    .timer {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #dc3545;
+    }
+    .correct {
+      color: green;
+      font-weight: bold;
+    }
+    .incorrect {
+      color: red;
+      font-weight: bold;
+    }
+    .tab-pane form {
+    direction: ltr;
+    text-align: left;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h2 class="text-center mb-4">Final Exam </h2>
+
+    
+    <ul class="nav nav-tabs mb-3" id="examTabs" role="tablist">
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link active"
+          id="python-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#python"
+          type="button"
+          role="tab"
+          aria-controls="python"
+          aria-selected="true"
+        >
+          Python exam
+        </button>
+      </li>
+      <li class="nav-item" role="presentation">
+        <button
+          class="nav-link"
+          id="cpp-tab"
+          data-bs-toggle="tab"
+          data-bs-target="#cpp"
+          type="button"
+          role="tab"
+          aria-controls="cpp"
+          aria-selected="false"
+        >
+          c++ Exam
+        </button>
+      </li>
+    </ul>
+
+    
+    <div class="mb-3 text-center">
+    time:<span id="timer" class="timer">05:00</span>
+    </div>
+
+    
+    <div class="tab-content" id="examTabContent">
+      
+      <div
+        class="tab-pane fade show active"
+        id="python"
+        role="tabpanel"
+        aria-labelledby="python-tab"
+      >
+        <form id="pythonForm">
+          <div class="mb-3">
+            <label class="form-label fw-bold">1.Which phrase is used for printing in Python?</label>
+            <select class="form-select" name="q1" required>
+              <option value="" selected disabled>select</option>
+              <option value="print">print()</option>
+              <option value="echo">echo()</option>
+              <option value="cout">cout</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">2.What is the integer data type in Python?</label>
+            <select class="form-select" name="q2" required>
+              <option value="" selected disabled>select</option>
+              <option value="int">int</option>
+              <option value="float">float</option>
+              <option value="str">str</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">3.What is a repeat loop in Python?</label>
+            <select class="form-select" name="q3" required>
+              <option value="" selected disabled>select</option>
+              <option value="for">for</option>
+              <option value="while">while</option>
+              <option value="do-while">do-while</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">submit</button>
+        </form>
+        <div id="pythonResult" class="mt-4"></div>
+      </div>
+
+      
+      <div
+        class="tab-pane fade"
+        id="cpp"
+        role="tabpanel"
+        aria-labelledby="cpp-tab"
+      >
+        <form id="cppForm">
+          <div class="mb-3">
+            <label class="form-label fw-bold">1.What is the typography in C++?</label>
+            <select class="form-select" name="q1" required>
+              <option value="" selected disabled>select</option>
+              <option value="cout">cout</option>
+              <option value="print">print()</option>
+              <option value="echo">echo()</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">2.How to define the correct variable in C++?</label>
+            <select class="form-select" name="q2" required>
+              <option value="" selected disabled>select</option>
+              <option value="int x;">int x;</option>
+              <option value="x int;">x int;</option>
+              <option value="var x;">var x;</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">3.A loop that runs at least once?</label>
+            <select class="form-select" name="q3" required>
+              <option value="" selected disabled>select</option>
+              <option value="do-while">do-while</option>
+              <option value="while">while</option>
+              <option value="for">for</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">submit</button>
+        </form>
+        <div id="cppResult" class="mt-4"></div>
+      </div>
+    </div>
+  </div>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+  ></script>
+
+  <script>
+    
+    const totalTime = 300;
+    let timeLeft = totalTime;
+    let timerInterval = null;
+
+    const timerElement = document.getElementById("timer");
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timeLeft = totalTime;
+      updateTimer();
+      timerInterval = setInterval(() => {
+        timeLeft--;
+        updateTimer();
+        if (timeLeft <= 0) {
+          clearInterval(timerInterval);
+          alert("your time is ended.");
+          
+          disableCurrentForm();
+        }
+      }, 1000);
+    }
+
+    function updateTimer() {
+      let minutes = Math.floor(timeLeft / 60)
+        .toString()
+        .padStart(2, "0");
+      let seconds = (timeLeft % 60).toString().padStart(2, "0");
+      timerElement.textContent = `${minutes}:${seconds}`;
+    }
+
+    function disableCurrentForm() {
+      
+      const activeTab = document.querySelector(".tab-pane.active form");
+      if (activeTab) {
+        const inputs = activeTab.querySelectorAll("select, button");
+        inputs.forEach((el) => (el.disabled = true));
+      }
+    }
+
+    
+    startTimer();
+
+    
+    const tabs = document.querySelectorAll('button[data-bs-toggle="tab"]');
+    tabs.forEach((tab) => {
+      tab.addEventListener("shown.bs.tab", () => {
+        startTimer();
+        enableAllForms();
+        clearResults();
+      });
+    });
+
+    function enableAllForms() {
+      document.querySelectorAll("form select, form button").forEach((el) => {
+        el.disabled = false;
+      });
+    }
+
+    function clearResults() {
+      document.getElementById("pythonResult").innerHTML = "";
+      document.getElementById("cppResult").innerHTML = "";
+    }
+
+    
+    const pythonAnswers = {
+      q1: "print",
+      q2: "int",
+      q3: "for",
+    };
+
+    const cppAnswers = {
+      q1: "cout",
+      q2: "int x;",
+      q3: "do-while",
+    };
+
+    
+    function gradeExam(form, answers) {
+      let score = 0;
+      let total = Object.keys(answers).length;
+      let resultHTML = "<ul class='list-group'>";
+
+      for (const [question, correctAnswer] of Object.entries(answers)) {
+        const userAnswer = form[question].value;
+        if (userAnswer === correctAnswer) {
+          score++;
+          resultHTML += `<li class="list-group-item correct">Question${question.slice(1)}correct</li>`;
+        } else {
+          resultHTML += `<li class="list-group-item incorrect">Question${question.slice(1)}wrong,correctAnswer: ${correctAnswer})</li>`;
+        }
+      }
+
+      resultHTML += `</ul>`;
+      resultHTML += `<p class="mt-3 fw-bold">your score: ${score} / ${total}</p>`;
+      return { score, resultHTML };
+    }
+
+    
+    document.getElementById("pythonForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const result = gradeExam(form, pythonAnswers);
+      document.getElementById("pythonResult").innerHTML = result.resultHTML;
+      
+      form.querySelectorAll("select, button").forEach((el) => (el.disabled = true));
+      clearInterval(timerInterval);
+    });
+
+    
+    document.getElementById("cppForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const form = e.target;
+      const result = gradeExam(form, cppAnswers);
+      document.getElementById("cppResult").innerHTML = result.resultHTML;
+      
+      form.querySelectorAll("select, button").forEach((el) => (el.disabled = true));
+      clearInterval(timerInterval);
+    });
+  </script>
+</body>
+</html>
