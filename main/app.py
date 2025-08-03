@@ -20,9 +20,30 @@ class DataManager:
 @app.route("/")
 def home():
     return render_template("index.html")
-@app.route("/AdminDashboard")
+@app.route('/AdminDashboard')
 def AdminDashboard():
-    return render_template("AdminDashboard.html")  
+    students_path = os.path.join(app.root_path, 'data', 'students.json')
+    students = DataManager.load_data(students_path) or {}
+
+    registrations = []
+    for std_id, std_data in students.items():
+        full_name = f"{std_data.get('first name', '')} {std_data.get('last name', '')}"
+        for course in std_data.get('registered_courses', []):
+            registrations.append({
+                "name": full_name,
+                "course": course,
+                "date": "2025-08-06"  # بهتره تاریخ واقعی داشته باشید
+            })
+
+    courses_path = os.path.join(app.root_path, 'data', 'courses.json')
+    courses = DataManager.load_data(courses_path) or {}
+    course_distribution = {}
+    for course_name, info in courses.items():
+        if info.get('occupied', 0) > 0:
+            course_distribution[course_name] = info['occupied']
+
+    return render_template("AdminDashboard.html", registrations=registrations, distribution=course_distribution)
+
 @app.route("/AdminLogin",methods=["GET", "POST"])
 def AdminLogin():
     if request.method == "POST":
@@ -36,6 +57,7 @@ def AdminLogin():
             error = "incorrect email or password!"
             return render_template("AdminLogin.html", error=error)
     return render_template("AdminLogin.html")
+
 @app.route("/StudentLogin", methods=["GET", "POST"])
 def StudentLogin():
     if request.method == "POST":
@@ -136,9 +158,23 @@ def StudentSignup():
     
     return render_template("StudentSignup.html")
 
-@app.route("/StudentDashboard",methods=["GET", "POST"])
+@app.route("/StudentDashboard", methods=["GET", "POST"])
 def StudentDashboard():
     student_id = session.get("student_id")
+
+    if not student_id:
+        return redirect("/StudentLogin")  # اگر لاگین نکرده بود، بفرست به صفحه لاگین
+
+    with open("main/data/students.json", "r", encoding="utf-8") as f:
+        all_students = json.load(f)
+
+    student = all_students.get(student_id)
+
+    if not student:
+        return "Student not found", 404
+
+    return render_template("StudentDashboard.html", student=student)
+
     
     return render_template("StudentDashboard.html")
 @app.route("/SeptemberTermCalender")
@@ -225,6 +261,9 @@ def payment_failed():
 @app.route('/query', methods=["GET","POST"])
 def query():
     return render_template("query.html")
+@app.route('/project', methods=["GET"])
+def project():
+    return render_template("project.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

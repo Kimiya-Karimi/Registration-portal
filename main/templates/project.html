@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects Overview</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+      line-height: 1.7;
+    }
+    h1 {
+      color: #2c3e50;
+    }
+    .project {
+      background-color: #fff;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .project h2 {
+      color: #1e3799;
+      margin-top: 0;
+    }
+    .section-title {
+      font-weight: bold;
+      margin-top: 1.2rem;
+      color: #2d3436;
+    }
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.5rem;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    th, td {
+      padding: 0.6rem;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #ecf0f1;
+    }
+    .note {
+      font-style: italic;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>⚠️ Pay Attention</h1>
+  <p>These two projects are set for students who have <strong style="color:red;">completed</strong> the <strong style="color:red;">Programming Course (Python/C++).</strong><br>
+  The project submission deadline is by the end of August.</p>
+  <div class="project">
+    <h2>📁 Digital Document Management and Digital Signature Platform</h2>
+
+    <p class="section-title">📌 General Description:</p>
+    <p>This system allows professional service providers (e.g., law firms, accounting companies) to securely manage documents with digital signatures. It uses advanced OOP in Python, with features such as:</p>
+    <ul>
+      <li>Audit logging</li>
+      <li>Secure access control</li>
+      <li>Digital signature verification</li>
+    </ul>
+
+    <p class="section-title">🌐 Real-World Use Case:</p>
+    <p>A mid-sized law firm can transition from paper-based to fully digital workflows, managing legal documents securely, signing and verifying them digitally, and sharing them with authorized personnel while preserving confidentiality.</p>
+
+    <p class="section-title">👩‍⚖️ Example Scenario:</p>
+    <ul>
+      <li>Zahra uploads case files via a web interface.</li>
+      <li>Each document is automatically versioned, digitally signed, and verified.</li>
+      <li>When a client signs, the signature is verified and stored in an immutable audit trail.</li>
+      <li>This saves time and enhances security, compliance, and trust.</li>
+    </ul>
+    <p class="note">* All documents are assumed to be in PDF format.</p>
+
+    <p class="section-title">🧱 Suggested Classes:</p>
+    <table>
+      <tr><th>Class Name</th><th>Description</th></tr>
+      <tr><td>Document</td><td>Represents a document with metadata, content, and signature status</td></tr>
+      <tr><td>User</td><td>Handles users like lawyers, clients, and admins</td></tr>
+      <tr><td>Signature</td><td>Manages digital signature details and timestamps</td></tr>
+      <tr><td>DocumentManager</td><td>Manages uploading, sharing, versioning</td></tr>
+      <tr><td>EncryptionManager</td><td>Provides security via encryption/decryption</td></tr>
+      <tr><td>DatabaseConnector</td><td>Handles data persistence (e.g., JSON or database)</td></tr>
+    </table>
+  </div>
+
+  <div class="project">
+    <h2>📚 Smart Course Registration Portal</h2>
+
+    <p class="section-title">📌 Description:</p>
+    <p>A simple and efficient course registration system using OOP in Python. It enables full registration workflow with user roles, course offerings, schedule planning, and conflict detection. Data is stored using JSON files to avoid database complexity.</p>
+
+    <p class="section-title">🧩 Functional Requirements:</p>
+    <ul>
+      <li><strong>User Management:</strong> Signup, login, and role-based profile management</li>
+      <li><strong>Course Registration:</strong> Browse courses with schedule, capacity, prerequisites</li>
+      <li><strong>Schedule & Conflict Detection:</strong> Detect overlapping courses automatically</li>
+      <li><strong>Storage:</strong> Use JSON files for all user and course data</li>
+      <li><strong>Usability:</strong> Simple and responsive web interface (HTML, CSS, Flask)</li>
+    </ul>
+
+    <p class="section-title">👨‍🎓 Example Use Case:</p>
+    <ul>
+      <li>Ali signs up via the web portal.</li>
+      <li>He logs in and views a list of available courses.</li>
+      <li>Each course displays time slots and prerequisites.</li>
+      <li>Ali selects his courses and system checks for conflicts.</li>
+      <li>After confirmation, Ali receives a personalized timetable.</li>
+    </ul>
+
+    <p>Meanwhile, administrators can:</p>
+    <ul>
+      <li>Update course details</li>
+      <li>Manage student registrations</li>
+      <li>Generate usage reports</li>
+    </ul>
+
+    <p class="note">* No traditional database is used—everything is managed with JSON files, making it scalable for small institutions.</p>
+
+    <p class="section-title">🧱 Suggested Classes:</p>
+    <table>
+      <tr><th>Class Name</th><th>Description</th></tr>
+      <tr><td>User</td><td>Base class for common attributes (username, email, etc.)</td></tr>
+      <tr><td>Student</td><td>Inherits from User; manages course selections and schedule</td></tr>
+      <tr><td>Administrator</td><td>Inherits from User; manages courses and students</td></tr>
+      <tr><td>Course</td><td>Contains course info: name, time, capacity, prerequisites</td></tr>
+      <tr><td>Registration</td><td>Handles course enrollment and conflict resolution</td></tr>
+      <tr><td>JSONHandler</td><td>Reads/writes data from/to JSON files</td></tr>
+      <tr><td>Authenticator</td><td>Manages login/session control</td></tr>
+      <tr><td>Logger</td><td>Tracks system actions for audit/debug</td></tr>
+    </table>
+
+    <p class="note">🔧 You may also add extra utility classes like <code>ScheduleManager</code> or <code>Timetable</code> as needed.</p>
+  </div>
+
+</body>
+</html>

@@ -117,11 +117,11 @@
         </div>
       </div>
 
-  <!-- Main Content -->
+  
   <div class="main-content">
     <div class="d-flex justify-content-between align-items-center mb-3">
       <h3>Dashboard</h3>
-      <button class="btn btn-danger">Logout</button>
+      <a href="{{url_for('StudentLogin')}}" class="btn btn-danger"style="text-decoration: none;">Log out</a>
     </div>
 
 <div class="row mb-4">
@@ -141,32 +141,46 @@
     </div>
   </a>
 </div>
-      <div class="col-md-3"><div class="card bg-warning card-box">Projects</div></div>
-      <div class="col-md-3"><div class="card bg-danger card-box">resources</div></div>
+
+  <div class="col-md-3">
+    <a href="{{ url_for('project') }}" class="text-white text-decoration-none">
+      <div class="card bg-warning card-box shadow-sm" style="cursor: pointer;">
+  <div class="card-body text-center py-4">
+    <h5 class="card-title mb-0">Project</h5>
+</div>
+  </div>
+    </a>
+      </div>
+
+      <div class="col-md-3"><div class="card bg-danger card-box">My course</div></div>
     </div>
 
     <div class="row">
-      <!-- Chart -->
+      
       <div class="col-md-6 mb-4">
         <canvas id="progressChart"></canvas>
       </div>
 
-      <!-- Profile Info -->
-      <div class="col-md-6 mb-4">
-        <div class="profile-card">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY62vsraRt8wxfs4DT1uZjGGbbCZuN9rJ8Pw&amp;s" class="sFlh5c FyHeAf" alt="Pin by bian on Simpan Cepat | Creative profile picture, No photo profile  picture, No profile picture icon instagram" jsname="JuXqh" style="max-width: 736px; height: 305px; margin: 0px; width: 305px;" data-ilt="1754061806193">
-          <h6 class="mt-2">kimia</h6>
-          <p>StudentID: <strong>A213123131</strong></p>
-          <hr>
-          <p>Semester: <strong>II</strong></p>
-          <button class="btn btn-outline-primary btn-sm">View Profile</button>
-        </div>
-      </div>
-    </div>
+    <div class="col-md-6 mb-4">
+  <div class="profile-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY62vsraRt8wxfs4DT1uZjGGbbCZuN9rJ8Pw&amp;s"
+         class="sFlh5c FyHeAf"
+         alt="Profile Picture"
+         style="max-width: 736px; height: 305px; margin: 0px; width: 305px;">
+    
+    <h6 class="mt-2">{{ student["first name"] }} {{ student["last name"] }}</h6>
+    <p>StudentID: <strong>{{ student["student ID"] }}</strong></p>
+    <hr>
+    <p>Semester:II</p>
+    <button class="btn btn-outline-primary btn-sm">View Profile</button>
+  </div>
+</div>
 
-    <!-- Table and Calendar -->
+      
+
+    
     <div class="row">
-      <!-- Assignments Table -->
+      
       <div class="col-md-8">
         <h5>Assignments(new submission deadline has been set: August 25, 2025)</h5>
         <h6>click the 'Assignments' button to submit your assignments.</h6>
@@ -204,10 +218,10 @@
 
   <script>
     new Chart(document.getElementById('progressChart'), {
-      type: 'line',
-      data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'April', 'Aug'],
-        datasets: [{
+          type: 'line',
+          data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'April', 'Aug'],
+          datasets: [{
           label: 'Student Progress',
           data: [30, 40, 50, 70, 70, 60, 60, 0, 0],
           borderColor: '#0d6efd',

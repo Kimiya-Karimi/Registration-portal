@@ -200,5 +200,60 @@
                 "16-18": []
             }
         }
+    },
+    "1403010121005": {
+        "first name": "nona",
+        "last name": "eghbali",
+        "password": "scrypt:32768:8:1$UIgqSM8xbSRN4lxZ$f9796201163c58692a612229a5c346e56afe8d0b922cecece57bc4313d3ff72cc1a1c8d3891a23a69a7fe8db0440cdcedc803dd468f26a1aef2c6afcf0f10cb0",
+        "date of birth": "2006/24/08",
+        "gender": "female",
+        "national ID": "12345678",
+        "student ID": "1403010121005",
+        "course list": [],
+        "registered_courses": [
+            "Calculus 1",
+            "Calculus 2"
+        ],
+        "paid_courses": [
+            "Calculus 1",
+            "Calculus 2"
+        ],
+        "courses": {
+            "Saturday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Sunday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Monday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Tuesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Wednesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            }
+        }
     }
-}
+} 
