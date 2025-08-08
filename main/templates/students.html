@@ -3,16 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>students</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='students.css') }}">
 </head>
 <body>
-<h1>Students:</h1>
-    <ul>
-    {% for sid, info in students.items() %}
-      <li>{{ sid }} - {{ info.name }} ({{ info.major }})</li>
-    {% endfor %}
-    </ul>
-    
+
+<div class="student-container" style="display: flex; flex-wrap: wrap; gap: 20px;">
+  {% for sid, info in students.items() %}
+    <div class="student-card"
+      style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY62vsraRt8wxfs4DT1uZjGGbbCZuN9rJ8Pw&amp;s');">
+      <h3 style="margin: 0; font-size: 16px;">
+        {{ info['first name'] }} {{ info['last name'] }}
+      </h3>
+      <small>ID: {{ sid }}</small>
+    </div>
+  {% endfor %}
+</div>
+
+
+
 </body>
 </html>
+
+
+
+

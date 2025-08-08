@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Course</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="mb-4">Add New Course</h1>
+
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+
+    <form method="POST">
+      <div class="mb-3">
+        <label for="name" class="form-label">Course Name</label>
+        <input type="text" class="form-control" name="name" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="credit" class="form-label">Credit</label>
+        <input type="number" class="form-control" name="credit" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="capacity" class="form-label">Capacity</label>
+        <input type="number" class="form-control" name="capacity" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="occupied" class="form-label">Occupied</label>
+        <input type="number" class="form-control" name="occupied" required>
+      </div>
+
+      <div class="mb-3">
+        <label for="prequisites" class="form-label">prequisites</label>
+        <input type="text" class="form-control" name="prequisites">
+      </div>
+
+      <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" class="form-control" name="price">
+      </div>
+
+      <div class="mb-3">
+        <label for="classes" class="form-label">Classes (e.g. Saturday-10:00)</label>
+        <input type="text" class="form-control" name="classes">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Add Course</button>
+    </form>
+  </div>
+</body>
+</html>
+

@@ -31,8 +31,7 @@
     <p><strong>Occupied:</strong> <span id="modal-occupied"></span></p>
     <p><strong>Prerequisites:</strong> <span id="modal-prereq"></span></p>
     <p><strong>price:</strong> <span id="modal-price"></span></p>
-    <button onclick="registerCourse()">Register</button>
-
+    <button class="button"> <a href="{{url_for('payment')}}">Register</a></button>
 
   </div>
 </div>
@@ -49,33 +48,7 @@
     document.getElementById("courseModal").style.display = "flex";
   }
 
-  function closeModal() {
-    document.getElementById("courseModal").style.display = "none";
-  }
-
-  window.onclick = function (event) {
-    let modal = document.getElementById("courseModal");
-    if (event.target == modal) {
-      modal.style.display = "none";
-    }
-  }
-  function registerCourse() {
-  const course = document.getElementById("modal-title").textContent;
-
-  fetch("/register_course", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ course: course })
-  })
-  .then(response => {
-    if (response.ok) {
-      alert("Course registered successfully!");
-      closeModal();
-    } else {
-      alert("Error registering course.");
-    }
-  });
-}
+  
 
 </script>
 

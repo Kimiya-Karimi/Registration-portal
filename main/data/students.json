@@ -212,11 +212,15 @@
         "course list": [],
         "registered_courses": [
             "Calculus 1",
-            "Calculus 2"
+            "Calculus 2",
+            "Advanced Programming",
+            "Physics 1"
         ],
         "paid_courses": [
             "Calculus 1",
-            "Calculus 2"
+            "Calculus 2",
+            "Advanced Programming",
+            "Physics 1"
         ],
         "courses": {
             "Saturday": {
@@ -256,4 +260,4 @@
             }
         }
     }
-} 
+}

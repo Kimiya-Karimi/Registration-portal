@@ -1,6 +1,7 @@
-from flask import Flask , render_template , url_for , request , redirect , session
-import os , json , re
+from flask import Flask , render_template , url_for , request , redirect , session, jsonify
+import os , json , re 
 from werkzeug.security import generate_password_hash, check_password_hash
+from collections import defaultdict
 app = Flask(__name__)
 app.secret_key = "kimiakarimipanteagholampour"
 class DataManager:
@@ -16,33 +17,86 @@ class DataManager:
     def save_data(data, file_path):
         with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4, ensure_ascii=False)
+def calculate_distribution(registrations):
+    distribution = {}
+    for r in registrations:
+        course = r.get("course")
+        if course:
+            distribution[course] = distribution.get(course, 0) + 1
+    return distribution
 
 @app.route("/")
 def home():
     return render_template("index.html")
-@app.route('/AdminDashboard')
+
+@app.route("/AdminDashboard")
 def AdminDashboard():
     students_path = os.path.join(app.root_path, 'data', 'students.json')
-    students = DataManager.load_data(students_path) or {}
+    students = DataManager.load_data(students_path)
+    courses_path = os.path.join(app.root_path, 'data' , 'students.json')
+    courses = DataManager.load_data(courses_path)
 
-    registrations = []
-    for std_id, std_data in students.items():
-        full_name = f"{std_data.get('first name', '')} {std_data.get('last name', '')}"
-        for course in std_data.get('registered_courses', []):
-            registrations.append({
-                "name": full_name,
-                "course": course,
-                "date": "2025-08-06"  # بهتره تاریخ واقعی داشته باشید
-            })
+    # distribution = {}
+    # for student in students:
+    #     for course in student.get("courses", []):
+    #         distribution[course] = distribution.get(course, 0) + 1
 
+    # chart_data = {
+    #     "labels": [for course in distribution],
+    #     "data": list(distribution.values())
+    # }
+
+    return render_template("AdminDashboard.html")
+
+@app.route("/Addcourse", methods=["GET", "POST"])
+def Addcourse():
     courses_path = os.path.join(app.root_path, 'data', 'courses.json')
-    courses = DataManager.load_data(courses_path) or {}
-    course_distribution = {}
-    for course_name, info in courses.items():
-        if info.get('occupied', 0) > 0:
-            course_distribution[course_name] = info['occupied']
+    timetable_path = os.path.join(app.root_path, 'data', 'timetable.json')
 
-    return render_template("AdminDashboard.html", registrations=registrations, distribution=course_distribution)
+    courses = DataManager.load_data(courses_path)
+    timetable = DataManager.load_data(timetable_path)
+
+    if request.method == "POST":
+        name = request.form['name'].title()
+        if name in courses:
+            return render_template("Addcourse.html", error="Course already exists.")
+
+        credit = request.form['credit']
+        capacity = request.form['capacity']
+        occupied = request.form['occupied']
+        prerequisites = request.form.get('prerequisites', '').title()
+        price = request.form['price']
+        classes = request.form['classes']  
+
+        day = request.form.get('day')
+        time = request.form.get('time')
+
+        new_course = {
+            name: {
+                "credit": credit,
+                "capacity": capacity,
+                "occupied": occupied,
+                "prerequisites": prerequisites,
+                "price": price,
+                "classes": classes
+            }
+        }
+
+        courses.update(new_course)
+        DataManager.save_data(courses, courses_path)
+
+        if day and time:
+            if day not in timetable:
+                timetable[day] = {}
+            if time not in timetable[day]:
+                timetable[day][time] = []
+    return render_template("Addcourse.html")            
+
+@app.route("/report")
+def report():
+    courses_path= os.path.join(app.root_path, 'data', 'courses.json')
+    courses = DataManager.load_data(courses_path)
+    return render_template("report.html" , courses=courses)
 
 @app.route("/AdminLogin",methods=["GET", "POST"])
 def AdminLogin():
@@ -158,25 +212,18 @@ def StudentSignup():
     
     return render_template("StudentSignup.html")
 
-@app.route("/StudentDashboard", methods=["GET", "POST"])
+@app.route("/StudentDashboard",methods=["GET", "POST"])
 def StudentDashboard():
     student_id = session.get("student_id")
-
     if not student_id:
-        return redirect("/StudentLogin")  # اگر لاگین نکرده بود، بفرست به صفحه لاگین
+        return redirect(url_for("StudentLogin"))
+    students_path = os.path.join(app.root_path, 'data', 'students.json')
+    students = DataManager.load_data(students_path)
+    student_data = students.get(student_id)
+    if not student_data:
+        return redirect(url_for("StudentLogin"))
+    return render_template("StudentDashboard.html", student= student_data)
 
-    with open("main/data/students.json", "r", encoding="utf-8") as f:
-        all_students = json.load(f)
-
-    student = all_students.get(student_id)
-
-    if not student:
-        return "Student not found", 404
-
-    return render_template("StudentDashboard.html", student=student)
-
-    
-    return render_template("StudentDashboard.html")
 @app.route("/SeptemberTermCalender")
 def SeptemberTermCalender():
     timetable = DataManager.load_data("main/data/timetable.json")

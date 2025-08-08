@@ -1,145 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>Admin Dashboard</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 20px;
+    }
+    .sidebar {
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 220px;
+      background-color: #021b45;
+      color: white;
+      padding: 20px;
+      overflow-y: auto;
+    }
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .main-content {
+      margin-left: 240px;
+      padding: 20px;
+      position: relative;
+    }
+    .card-box {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      font-size: 18px;
+    }
+    .calendar {
+      border: 1px solid #dee2e6;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      background: white;
+    }
+    .calendar table {
+      width: 100%;
+      font-size: 14px;
+    }
+    .calendar th {
+      color: #011636;
+    }
+    
+    .profile-card {
+      position: fixed;
+      background-color: #ffffff;
+      top: 40px;
+      right: 20px;
+      width: 200px;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      background: white;
+    }
+    .profile-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    
+    .chart-legend-container {
+      display: flex;
+      gap: 30px; 
+      align-items: flex-start;
+      max-width: 900px;
+      margin-bottom: 40px;
+    }
+
+    
+    #registrationChart {
+      max-width: 400px;
+      max-height: 400px;
+      height: 400px; 
+    }
+
+    
+    .custom-legend {
+      display: flex;
+      gap: 40px; 
+      flex-wrap: nowrap;
+    }
+
+    .legend-column {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; 
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .legend-color-box {
+      width: 18px;
+      height: 18px;
+      border-radius: 3px;
+    }
+  </style>
 </head>
-<body class="bg-light">
-  <div class="container-fluid">
-    <h2 class="text-primary my-4">Admin Dashboard</h2>
+<body>
 
-    <!-- Cards -->
-    <div class="row mb-4">
-      <div class="col-md-3">
-        <div class="card text-white bg-primary">
-          <div class="card-body">
-            <h5>Total Students</h5>
-            <p>{{ registrations|length }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-white bg-success">
-          <div class="card-body">
-            <h5>Total Courses</h5>
-            <p>{{ distribution|length }}</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-white bg-warning">
-          <div class="card-body">
-            <h5>Pending Queries</h5>
-            <p>7</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card text-white bg-danger">
-          <div class="card-body">
-            <h5>Reports</h5>
-            <p>3 flagged</p>
-          </div>
-        </div>
+  <div class="sidebar">
+    <h5>PAIA University</h5>
+    <hr>
+    <a href="{{ url_for('AvailableCourses') }}">Available Course</a>
+    <a href="{{ url_for('Addcourse') }}">Add Course</a>
+    <a href="{{ url_for('students') }}">Students</a>
+    <a href="{{ url_for('SeptemberTermCalender') }}">September Term</a>
+    <a href="{{ url_for('report') }}">Report</a>
+    <a href="{{ url_for('FAQ') }}">Administrator</a>
+  </div>
+
+  <div class="main-content">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <h3>Dashboard</h3>
+    </div>
+
+    <div class="chart-legend-container">
+      <canvas id="registrationChart"></canvas>
+
+      <div class="custom-legend" id="customLegend">
+        
       </div>
     </div>
 
-    <!-- Pie Chart -->
-    <div class="card mb-4">
-      <div class="card-header">Student Distribution in Courses</div>
-      <div class="card-body">
-        <canvas id="courseChart"></canvas>
-      </div>
-    </div>
+    <hr />
 
-    <!-- Registered Students Table -->
-    <div class="card mb-4">
-      <div class="card-header">Course Registrations</div>
-      <div class="card-body">
-        <table class="table table-bordered table-hover">
-          <thead class="table-dark">
-            <tr><th>Student Name</th><th>Course</th><th>Date</th></tr>
-          </thead>
-          <tbody>
-            {% for r in registrations %}
+    <div class="row">
+      <div class="col-md-4">
+        <div class="calendar">
+          <p><strong>August 2025</strong></p>
+          <table class="table table-bordered">
+            <thead>
               <tr>
-                <td>{{ r.name }}</td>
-                <td>{{ r.course }}</td>
-                <td>{{ r.date }}</td>
+                <th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th>
               </tr>
-            {% endfor %}
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- Collapsible Reports -->
-    <div class="accordion mb-4" id="reportAccordion">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-            Report: Suspicious Activity
-          </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#reportAccordion">
-          <div class="accordion-body">Report content and logs for review.</div>
+            </thead>
+            <tbody>
+              <tr><td></td><td></td><td></td><td></td><td></td><td>1</td><td>2</td></tr>
+              <tr><td>3</td><td>4</td><td>5</td><td><strong style="color:red;">6</strong></td><td>7</td><td>8</td><td>9</td></tr>
+              <tr><td>10</td><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td></tr>
+              <tr><td>17</td><td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td></tr>
+              <tr><td>24</td><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>
-
-    <!-- Modal: Add Course -->
-    <button class="btn btn-outline-primary mb-3" data-bs-toggle="modal" data-bs-target="#addCourseModal">Add Course</button>
-    <div class="modal fade" id="addCourseModal" tabindex="-1">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Add New Course</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-          </div>
-          <div class="modal-body">
-            <input type="text" class="form-control" placeholder="Course Name">
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button class="btn btn-primary">Save</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tabs -->
-    <ul class="nav nav-tabs mt-4" id="adminTab" role="tablist">
-      <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#users">Users</button></li>
-      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#requests">Requests</button></li>
-      <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#settings">Settings</button></li>
-    </ul>
-    <div class="tab-content p-3 border border-top-0">
-      <div class="tab-pane fade show active" id="users">User list here...</div>
-      <div class="tab-pane fade" id="requests">Request list here...</div>
-      <div class="tab-pane fade" id="settings">Settings form...</div>
     </div>
   </div>
 
+  <div class="profile-card">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY62vsraRt8wxfs4DT1uZjGGbbCZuN9rJ8Pw&s" alt="Profile Picture" />
+  </div>
+
   <script>
-    const ctx = document.getElementById('courseChart');
-    new Chart(ctx, {
+    const labels = ['calculus1', 'calculus2', 'Programming', 'Advanced Programming', 'Probability', 'Physics I', 'Physics II', 'English', 'Data Structures & Algorithms',
+      'Foundation of Mathematics', 'Computer Workshop', 'Foundation of Numerical Analysis', 'Differential Equations', 'Database', 'Foundation of Combinatorics', 'Basics of Economics', 'Sports','Foundation of Matrices & Linear Algebra','Chemistry','Literature'
+    ];
+
+    const dataValues = [3, 4, 5, 7, 7, 6, 6, 5, 2, 4, 1, 2, 3, 2, 4, 6, 3, 5, 2, 4];
+
+    const backgroundColors = [
+      '#0dcaf0' ,
+      '#20c997',
+      '#ffc107',
+      '#fd7e14',
+      '#dc3545',
+      '#d63384',
+      '#6f42c1',
+      '#6f42c1',
+      '#0d6efd',
+      '#f1aeb5',
+      '#ffe69c',
+      '#9eeaf9',
+      '#a3cfbb',
+      '#9ec5fe',
+      '#495057',
+      '#58151c',
+      '#664d03',
+      '#055160',
+      '#0a3622',
+      '#052c65',
+    ];
+
+    const ctx = document.getElementById('registrationChart').getContext('2d');
+    const pieChart = new Chart(ctx, {
       type: 'pie',
       data: {
-        labels: {{ distribution.keys()|list }},
+        labels: labels,
         datasets: [{
-          label: 'Students',
-          data: {{ distribution.values()|list }},
-          backgroundColor: [
-            '#0d6efd', '#198754', '#ffc107', '#dc3545', '#6f42c1',
-            '#20c997', '#fd7e14', '#0dcaf0'
-          ]
+          data: dataValues,
+          backgroundColor: backgroundColors,
         }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            display: false  
+          }
+        }
       }
     });
+
+    
+    const legendContainer = document.getElementById('customLegend');
+
+    const col1Labels = labels.slice(0, 10);
+    const col2Labels = labels.slice(10, 20);
+
+    function createLegendColumn(labelsArray, startIndex) {
+      const colDiv = document.createElement('div');
+      colDiv.className = 'legend-column';
+
+      labelsArray.forEach((label, i) => {
+        const itemDiv = document.createElement('div');
+        itemDiv.className = 'legend-item';
+
+        const colorBox = document.createElement('div');
+        colorBox.className = 'legend-color-box';
+        colorBox.style.backgroundColor = backgroundColors[startIndex + i];
+
+        const labelSpan = document.createElement('span');
+        labelSpan.textContent = label;
+
+        itemDiv.appendChild(colorBox);
+        itemDiv.appendChild(labelSpan);
+
+        colDiv.appendChild(itemDiv);
+      });
+
+      return colDiv;
+    }
+
+    legendContainer.appendChild(createLegendColumn(col1Labels, 0));
+    legendContainer.appendChild(createLegendColumn(col2Labels, 10));
   </script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
