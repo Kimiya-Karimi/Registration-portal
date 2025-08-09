@@ -85,7 +85,7 @@
       >
         <form id="pythonForm">
           <div class="mb-3">
-            <label class="form-label fw-bold">1.Which phrase is used for printing in Python?</label>
+            <label class="form-label fw-bold">1. Which phrase is used for printing in Python?</label>
             <select class="form-select" name="q1" required>
               <option value="" selected disabled>select</option>
               <option value="print">print()</option>
@@ -94,7 +94,7 @@
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label fw-bold">2.What is the integer data type in Python?</label>
+            <label class="form-label fw-bold">2. What is the integer data type in Python?</label>
             <select class="form-select" name="q2" required>
               <option value="" selected disabled>select</option>
               <option value="int">int</option>
@@ -103,12 +103,96 @@
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label fw-bold">3.What is a repeat loop in Python?</label>
+            <label class="form-label fw-bold">3. What is a repeat loop in Python?</label>
             <select class="form-select" name="q3" required>
               <option value="" selected disabled>select</option>
               <option value="for">for</option>
               <option value="while">while</option>
               <option value="do-while">do-while</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">4. Which of the following is used to create a function in python?</label>
+            <select class="form-select" name="q4" required>
+              <option value="" selected disabled>select</option>
+              <option value="def">def</option>
+              <option value="func">func</option>
+              <option value="function">function</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">5. What will be the output of the following code?
+              <pre>
+                x = [1, 2, 3]
+                print(x[1])
+              </pre>
+            </label>
+            <select class="form-select" name="q5" required>
+              <option value="" selected disabled>select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">6. What will be printed?
+              <pre>
+                print("5" * 3)
+              </pre>
+            </label>
+            <select class="form-select" name="q6" required>
+              <option value="" selected disabled>select</option>
+              <option value="15">15</option>
+              <option value="555">555</option>
+              <option value="error">error</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">7. Which of the following statements is correct about lists and tuples in python?</label>
+            <select class="form-select" name="q7" required>
+              <option value="" selected disabled>select</option>
+              <option value="list">Lists are immutable, tuples are mutable</option>
+              <option value="tuple">Lists are mutable, tuples are immutable</option>
+              <option value="both">Both lists and tuples are immutable</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">8. What is the output?
+              <pre>
+                x = {"a": 1, "b": 2}
+                print(x.get("c", 5))
+              </pre>
+            </label>
+            <select class="form-select" name="q8" required>
+              <option value="" selected disabled>select</option>
+              <option value="none">None</option>
+              <option value="5">5</option>
+              <option value="error">Error</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">9. Which of these is the correct way to import only the 'sqrt' function from the 'math' module?</label>
+            <select class="form-select" name="q9" required>
+              <option value="" selected disabled>select</option>
+              <option value="import sqrt from math">import sqrt from math</option>
+              <option value="from math import sqrt">from math import sqrt</option>
+              <option value="import math sqrt">import math sqrt</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">10. What will be the output?
+              <pre>
+                x = [1, 2, 3]
+                y = x
+                y.append(4)
+                print(x)
+              </pre>
+            </label>
+            <select class="form-select" name="q10" required>
+              <option value="" selected disabled>select</option>
+              <option value="3">[1, 2, 3]</option>
+              <option value="4">[1, 2, 3, 4]</option>
+              <option value="error">Error</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary">submit</button>
@@ -125,7 +209,7 @@
       >
         <form id="cppForm">
           <div class="mb-3">
-            <label class="form-label fw-bold">1.What is the typography in C++?</label>
+            <label class="form-label fw-bold">1. What is the typography in C++?</label>
             <select class="form-select" name="q1" required>
               <option value="" selected disabled>select</option>
               <option value="cout">cout</option>
@@ -134,7 +218,7 @@
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label fw-bold">2.How to define the correct variable in C++?</label>
+            <label class="form-label fw-bold">2. How to define the correct variable in C++?</label>
             <select class="form-select" name="q2" required>
               <option value="" selected disabled>select</option>
               <option value="int x;">int x;</option>
@@ -143,12 +227,100 @@
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label fw-bold">3.A loop that runs at least once?</label>
+            <label class="form-label fw-bold">3. A loop that runs at least once?</label>
             <select class="form-select" name="q3" required>
               <option value="" selected disabled>select</option>
               <option value="do-while">do-while</option>
               <option value="while">while</option>
               <option value="for">for</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Which keyword is used to define a constant variable?</label>
+            <select class="form-select" name="q4" required>
+              <option value="" selected disabled>select</option>
+              <option value="constant">constant</option>
+              <option value="final">final</option>
+              <option value="const">const</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">5. What will this code print?
+              <pre>
+                int x = 10;
+                if (x > 5)
+                  cout << "A";
+                else
+                  cout << "B";
+              </pre>
+            </label>
+            <select class="form-select" name="q5" required>
+              <option value="" selected disabled>select</option>
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="nothing">nothing</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">6. What will be the output?
+              <pre>
+                int arr[] = {1, 2, 3};
+                cout << arr[1];
+              </pre>
+            </label>
+            <select class="form-select" name="q6" required>
+              <option value="" selected disabled>select</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">7. Which header file is needed for cout and cin?</label>
+            <select class="form-select" name="q7" required>
+              <option value="" selected disabled>select</option>
+              <option value="iostream">iostream</option>
+              <option value="stdio.h">stdio.h</option>
+              <option value="string">string</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">8. What will be the output?
+              <pre>
+                int a = 5;
+                int b = 2;
+                cout << a / b;
+              </pre>
+            </label>
+            <select class="form-select" name="q8" required>
+              <option value="" selected disabled>select</option>
+              <option value="2.5">2.5</option>
+              <option value="2">2</option>
+              <option value="error">Error</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">Which of the following is NOT a valid data type in C++?</label>
+            <select class="form-select" name="q9" required>
+              <option value="" selected disabled>select</option>
+              <option value="float">float</option>
+              <option value="char">char</option>
+              <option value="real">real</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold">10. What will be the output?
+              <pre>
+                int x = 5;
+                int y = ++x;
+                cout << y;
+              </pre>
+            </label>
+            <select class="form-select" name="q10" required>
+              <option value="" selected disabled>select</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="error">Error</option>
             </select>
           </div>
           <button type="submit" class="btn btn-primary">submit</button>
@@ -232,12 +404,26 @@
       q1: "print",
       q2: "int",
       q3: "for",
+      q4: "def",
+      q5: "2",
+      q6: "555",
+      q7: "tuple",
+      q8: "5",
+      q9: "from math import sqrt",
+      q10: "4",
     };
 
     const cppAnswers = {
       q1: "cout",
       q2: "int x;",
       q3: "do-while",
+      q4: "const",
+      q5: "A",
+      q6: "2",
+      q7: "iostream",
+      q8: "2",
+      q9: "real",
+      q10: "6",
     };
 
     
@@ -250,9 +436,9 @@
         const userAnswer = form[question].value;
         if (userAnswer === correctAnswer) {
           score++;
-          resultHTML += `<li class="list-group-item correct">Question${question.slice(1)}correct</li>`;
+          resultHTML += `<li class="list-group-item correct">Question ${question.slice(1)} correct</li>`;
         } else {
-          resultHTML += `<li class="list-group-item incorrect">Question${question.slice(1)}wrong,correctAnswer: ${correctAnswer})</li>`;
+          resultHTML += `<li class="list-group-item incorrect">Question ${question.slice(1)} wrong. correct answer: ${correctAnswer})</li>`;
         }
       }
 
