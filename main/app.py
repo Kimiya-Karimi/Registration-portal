@@ -311,6 +311,9 @@ def query():
 @app.route('/project', methods=["GET"])
 def project():
     return render_template("project.html")
+@app.route('/administrator', methods=["GET"])
+def administrator():
+    return render_template("administrator.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

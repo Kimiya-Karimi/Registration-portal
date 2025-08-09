@@ -4,18 +4,19 @@ body {
     background: url('https://www.troy.edu/_assets/20-25-strategic-plan/_images/strategic-plan-adjusted.jpg') no-repeat center center fixed;   
     background-color: rgb(0, 24, 59);
     background-size: cover;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
-.title{
-  background: rgba(83, 82, 82, 0.534); 
-  font-size: 42px;
-  font-weight: bold;
-  color: #f4f3f3; 
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 60px;
 
+.title {
+    background: rgba(83, 82, 82, 0.534); 
+    font-size: 42px;
+    font-weight: bold;
+    color: #f4f3f3; 
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 60px;
 }
+
 .glass-full {
     font-size: x-large;
     height: 100vh;
@@ -31,36 +32,55 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.267);
     align-items: center;
 }
-.glass h1 {
-    font-size: 2em;
-    margin-bottom: 100px;
-}
 
 .glass-content {
     text-align: center;
-    color:aliceblue;
+    color: aliceblue;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideUp 1s ease forwards;
+    animation-delay: 0.5s;
 }
-.glass-content :hover {
- color: rgba(0, 0, 0, 0.555);
+
+.glass-content:hover {
+    color: rgba(0, 0, 0, 0.555);
 }
+
 .buttons a {
     display: block;
-    height: 50px;
+    height: 40px;
     width: 500px;
     margin: 10px auto;
-    padding: 12px 20 px;
+    padding: 12px 20px;
     background-color: rgba(99, 97, 98, 0.443);
     border: none;
     border-radius: 15px;
-    color:rgb(236, 239, 242);
+    color: rgb(236, 239, 242);
     text-decoration: none;
     transition: 0.3s;
-    line-height: 50px
+    line-height: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideUp 0.7s ease forwards;
 }
 .buttons a:hover {
-    background-color: rgba(11, 11, 11, 0.4);
-    font-size:larger;
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
 }
+
+
+.buttons a:nth-child(1) { animation-delay: 1.5s; }
+.buttons a:nth-child(2) { animation-delay: 1.7s; }
+.buttons a:nth-child(3) { animation-delay: 1.9s; }
+.buttons a:nth-child(4) { animation-delay: 2.1s; }
+
+@keyframes fadeSlideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }    
+}
+
 html {
   scroll-behavior: smooth;
 }
