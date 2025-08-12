@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <title>Registration Report</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f9fa;
+      margin: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-weight: 600;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    thead {
+      background-color: #022850;
+      color: white;
+      font-weight: 600;
+    }
+    thead th {
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 17px;
+    }
+    tbody tr {
+      border-bottom: 1px solid #eaeaea;
+      transition: background-color 0.3s ease;
+    }
+    tbody tr:hover {
+      background-color: #f1f5fb;
+    }
+    tbody td {
+      padding: 16px 24px;
+      text-align: center;
+      font-size: 15px;
+    }
+    ul {
+      padding-left: 0;
+      margin: 0;
+      list-style: none;
+    }
+    ul li {
+      background: #e7f1ff;
+      color: #007bff;
+      display: inline-block;
+      margin: 2px 7px;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      table, thead, tbody, tr, th, td {
+        display: block;
+      }
+      thead tr {
+        display: none;
+      }
+      tbody tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+      }
+      tbody td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+      tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        font-weight: 600;
+        color: #555;
+        white-space: nowrap;
+      }
+      ul li {
+        display: block;
+        margin: 3px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Registration Report</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Student ID</th>
+        <th>Name</th>
+        <th>Registered Course</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student_id, info in students.items() %}
+      <tr>
+        <td data-label="student ID">{{ student_id }}</td>
+        <td data-label="Name">{{ info['first name'] }} {{ info['last name'] }}</td>
+        <td data-label="Registered Course">
+          {% if info['registered_courses'] %}
+            <ul>
+              {% for course in info['registered_courses'] %}
+                <li>{{ course }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span style="color:#999;"></span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</body>
+</html>

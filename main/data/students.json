@@ -212,14 +212,12 @@
         "course list": [],
         "registered_courses": [
             "Calculus 1",
-            "Calculus 2",
-            "Advanced Programming",
+            "Probability",
             "Physics 1"
         ],
         "paid_courses": [
             "Calculus 1",
-            "Calculus 2",
-            "Advanced Programming",
+            "Probability",
             "Physics 1"
         ],
         "courses": {

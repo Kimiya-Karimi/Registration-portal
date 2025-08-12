@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>My Courses</title>
+    <style>
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #062445ff;
+            color: white;
+        }
+        button {
+            padding: 6px 12px;
+            background-color: #731313ff;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background-color: #1f0606ff;
+        }
+    </style>
+</head>
+<body>
+
+<h2 style="text-align:center;">My Courses</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Course Name</th>
+            <th>Credit</th>
+            <th>Capacity</th>
+            <th>Occupied</th>
+            <th>Price</th>
+            <th>Content</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for course_name, info in courses.items() %}
+        <tr>
+            <td>{{ course_name }}</td>
+            <td>{{ info.credit }}</td>
+            <td>{{ info.capacity }}</td>
+            <td>{{ info.occupied }}</td>
+            <td>${{ info.price }}</td>
+            <td>
+                <form method="GET" action="{{ url_for('coursecontent', course_name=course_name) }}">
+                    <button type="submit">View Content</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="6">No courses registered.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

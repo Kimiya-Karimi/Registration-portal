@@ -1,4 +1,4 @@
-from flask import Flask , render_template , url_for , request , redirect , session, jsonify
+from flask import Flask , render_template , url_for , request , redirect , session, flash
 import os , json , re 
 from werkzeug.security import generate_password_hash, check_password_hash
 from collections import defaultdict
@@ -94,9 +94,11 @@ def Addcourse():
 
 @app.route("/report")
 def report():
+    students_path = os.path.join(app.root_path, "data", "students.json")
+    students = DataManager.load_data(students_path)
     courses_path= os.path.join(app.root_path, 'data', 'courses.json')
     courses = DataManager.load_data(courses_path)
-    return render_template("report.html" , courses=courses)
+    return render_template("report.html" , courses=courses ,students=students)
 
 @app.route("/AdminLogin",methods=["GET", "POST"])
 def AdminLogin():
@@ -229,11 +231,59 @@ def SeptemberTermCalender():
     timetable = DataManager.load_data("main/data/timetable.json")
     courses = DataManager.load_data("main/data/courses.json")
     return render_template("SeptemberTermCalender.html", timetable=timetable, courses=courses)
-@app.route("/registercourse", methods=["GET","POST"])
+@app.route("/registercourse", methods=["GET", "POST"])
 def registercourse():
-    courses_path= os.path.join(app.root_path, 'data', 'courses.json')
+    courses_path = os.path.join(app.root_path, "data", "courses.json")
     courses = DataManager.load_data(courses_path)
-    return render_template("registercourse.html" , courses=courses)
+
+    if request.method == "POST":
+        student_id = session.get("student_id")
+        
+        students_path = os.path.join(app.root_path, "data", "students.json")
+        timetable_path = os.path.join(app.root_path, "data", "timetable.json")
+
+        students = DataManager.load_data(students_path)
+        timetable = DataManager.load_data(timetable_path)
+
+        course_name = request.form.get("course")
+
+        student = students.get(student_id)
+        if not student:
+            flash("Student data not found.", "danger")
+            return redirect(url_for("registercourse"))
+
+        
+        total_credit = sum(courses[c]["credit"] for c in student.get("registered_courses", []) if c in courses)
+        if total_credit + courses[course_name]["credit"] > 20:
+            flash("Cannot register more than 20 credits.", "danger")
+            return redirect(url_for("registercourse"))
+
+        
+        prereqs_raw = courses[course_name].get("prequisites", "")
+        prereqs = [p.strip() for p in prereqs_raw.split(",")] if prereqs_raw else []
+        prereqs = [p for p in prereqs if p] 
+
+        if not all(p in student.get("registered_courses", []) for p in prereqs):
+            flash(f"Prerequisites not met: {', '.join(prereqs)}", "danger")
+            return redirect(url_for("registercourse"))
+
+        
+        if courses[course_name]["occupied"] >= courses[course_name]["capacity"]:
+            flash("Course is full.", "danger")
+            return redirect(url_for("registercourse"))
+
+        student_courses = student.get("registered_courses", [])
+        for day, slots in timetable.items():
+            for time_slot, slot_courses in slots.items():
+                if course_name in slot_courses:
+                    if any(c in slot_courses for c in student_courses):
+                        flash("Time conflict detected with another registered course.", "danger")
+                        return redirect(url_for("registercourse"))
+        session["pending_course"] = course_name
+        return redirect(url_for("payment"))
+
+    return render_template("registercourse.html", courses=courses)
+
 @app.route("/FAQ", methods=["GET"])
 def FAQ():
     return render_template("FAQ.html")
@@ -305,6 +355,24 @@ def payment_success():
 @app.route('/payment_failed', methods=["POST"])
 def payment_failed():
     return redirect(url_for("payment"))
+@app.route("/coursecontent/<course_name>")
+def coursecontent(course_name):
+    pass
+
+@app.route("/mycourses")
+def mycourses():
+    student_id = session.get("student_id")
+    if not student_id:
+        return redirect(url_for("StudentLogin"))
+    students_path = os.path.join(app.root_path, "data", "students.json")
+    courses_path = os.path.join(app.root_path, "data", "courses.json")
+    students = DataManager.load_data(students_path)
+    courses = DataManager.load_data(courses_path)
+    student = students.get(student_id)
+    registered_courses = student.get("registered_courses", [])
+    registered_courses_info = {course: courses.get(course, {}) for course in registered_courses}
+    return render_template("mycourses.html", courses=registered_courses_info)
+
 @app.route('/query', methods=["GET","POST"])
 def query():
     return render_template("query.html")
