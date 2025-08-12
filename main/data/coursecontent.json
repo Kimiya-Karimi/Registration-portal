@@ -1,0 +1,633 @@
+{
+        "Calculus 1": {
+        "title": "Introduction to Calculus 1",
+        "sessions": [
+      {
+        "title": "Functions",
+        "description": "This algebra video tutorial provides a basic introduction into functions.  It contains plenty of examples and multiple-choice practice problems as well as free response problems.",
+        "video_url": "https://youtu.be/1xATmTI-YY8?si=sTXm4-aJsBTWRORY"
+      },
+      {
+        "title": "Logarithms",
+        "description": "This algebra video tutorial provides plenty of practice problems on logarithms including multiple choice problems as well as free response problems.",
+        "video_url": "https://youtu.be/7DVbQKI600k?si=et9bU-6to6OTYcLk"
+      },
+      {
+        "title": "Limits",
+        "description": "This calculus video tutorial explains how to evaluate the limit of a function that contains fractions and radicals.",
+        "video_url": "https://youtu.be/sHlNroEhW44?si=UawAS9VBklGStMpp"
+      },
+      {
+        "title": "Limits and Logarithms",
+        "description": "This calculus video tutorial explains how to evaluate certain limits at infinity using natural logarithms.  It explains where the number e comes from.",
+        "video_url": "https://youtu.be/fHzmQmcvheI?si=_evhlAcrIC-RMYRI"
+      },
+      {
+        "title": "Rolle's Theorem",
+        "description": "This calculus video tutorial provides a basic introduction into rolle's theorem.  It contains plenty of examples and practice problems on how to find the value of c that will satisfy the conclusion of rolle's theorem on the closed interval [a, b].  For rolle's theorem to apply to  a function, there are 3 conditions that must be met.  (1)  The function must be continuous on the closed interval [a, b].  (2)  The function must be differentiable on the open interval (a, b).  (3)  f(a) = f(b).  If these conditions are met, then f'(c)=0.  There will be some number c in the interval [a, b] where a horizontal tangent line will exist.  ",
+        "video_url": "https://youtu.be/LHym1ARc2cE?si=NLqUbRdNOTZKH021"
+      }
+    ]
+  },
+    "Calculus 2": {
+        "title": "Introduction to Calculus 2",
+        "sessions": [
+      {
+        "title": "Basic Integration",
+        "description": "This calculus 2video tutorial provides an introduction into basic integration techniques such as integration by parts, trigonometric integrals, and integration by trigonometric substitution.  It contains plenty of examples.",
+        "video_url": "https://youtu.be/2N6A4ed8s58?si=yZcZ6icBEet1dZZi"
+      },
+      {
+        "title": "Geometric Series, P-Series, Ratio Test, Root Test, Alternating Series, Integral Test",
+        "description": "This calculus 2 video provides a basic review into the convergence and divergence of a series.  It contains plenty of examples and practice problems.",
+        "video_url": "https://youtu.be/0YeON4p0ogw?si=3O4lyqHwCa-szbAU"
+      },
+      {
+        "title": "Trigonometric Integrals",
+        "description": "This calculus video tutorial provides a basic introduction into trigonometric integrals.  It explains what to do in order to integrate trig functions with even powers and how to employ u-substitution integration techniques and power reducing formulas in order to find the indefinite integral of trig functions with sin and cos.  This video contains plenty of examples and practice problems.",
+        "video_url": "https://youtu.be/3pXALn2ovIE?si=22eyDy2_UACMrWWx"
+      },
+      {
+        "title": "Integral of sinx cosx",
+        "description": "This calculus video tutorial explains how to find the integral of sinxcosx using u-substitution and pythagorean identities of trig. ",
+        "video_url": "https://youtu.be/4kFA1B5rqfk?si=RjaKMcARw9fehzCD"
+      },
+      {
+        "title": "Indefinite Integral of Special Rational Functions Using the Table of Integrals Formula Sheet",
+        "description": "This calculus video tutorial explains how to find the indefinite integral of special rational functions using the table of integrals formula sheet.  This video also explains how to verify your answer by finding the derivative of the answer to see if it's equivalent to the original problem. ",
+        "video_url": "https://youtu.be/Zk3S8uv2O-I?si=stSyTMrgjKJgDTkd"
+      }
+    ]
+  },
+
+    "Programming": {
+    "title": "",
+    "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+    "Probability": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Advanced Programming": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+    "Physics 1": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+   "Physics 2": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+    "English": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+    "Data Structures And Algorithms": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+   "Foundation Of Mathematics": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Computer Workshop": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Foundation Of Numerical Analysis": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Differential Equations": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Database": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Foundation Of Combinatorics": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+"Basics Of Economics": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Sports": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Foundation Of Matrices And Linear Algebra": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Numerical Linear Algebra": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Chemistry": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  },
+  "Literature": {
+        "title": "",
+        "sessions": [
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      },
+      {
+        "title": "",
+        "description": "",
+        "video_url": ""
+      }
+    ]
+  }
+}

@@ -4,38 +4,69 @@
     <meta charset="UTF-8" />
     <title>My Courses</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            padding: 20px 0;
+        }
         table {
-            width: 80%;
+            width: 90%;
+            max-width: 900px;
             margin: auto;
             border-collapse: collapse;
             margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
         }
         th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
+            padding: 14px 20px;
             text-align: center;
+            border-bottom: 1px solid #eee;
         }
         th {
-            background-color: #062445ff;
+            background-color: #081f47ff;
             color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        tr:last-child td {
+            border-bottom: none;
         }
         button {
-            padding: 6px 12px;
-            background-color: #731313ff;
+            padding: 8px 16px;
+            background-color: #952626ff;
             border: none;
             color: white;
             cursor: pointer;
             border-radius: 4px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
         }
         button:hover {
-            background-color: #1f0606ff;
+            background-color: #561515ff;
+        }
+        .no-courses {
+            text-align: center;
+            padding: 40px 0;
+            color: #777;
+            font-size: 1.1rem;
+        }
+        h2 {
+            text-align: center;
+            font-weight: 700;
+            color: #000000ff;
         }
     </style>
 </head>
 <body>
 
-<h2 style="text-align:center;">My Courses</h2>
+<h2>My Courses</h2>
 
+{% if courses %}
 <table>
     <thead>
         <tr>
@@ -57,17 +88,16 @@
             <td>${{ info.price }}</td>
             <td>
                 <form method="GET" action="{{ url_for('coursecontent', course_name=course_name) }}">
-                    <button type="submit">View Content</button>
+                    <button type="submit">Start Learning</button>
                 </form>
             </td>
-        </tr>
-        {% else %}
-        <tr>
-            <td colspan="6">No courses registered.</td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+{% else %}
+<div class="no-courses">You have not registered for any courses yet.</div>
+{% endif %}
 
 </body>
 </html>

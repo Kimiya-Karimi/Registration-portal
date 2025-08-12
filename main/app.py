@@ -355,9 +355,6 @@ def payment_success():
 @app.route('/payment_failed', methods=["POST"])
 def payment_failed():
     return redirect(url_for("payment"))
-@app.route("/coursecontent/<course_name>")
-def coursecontent(course_name):
-    pass
 
 @app.route("/mycourses")
 def mycourses():
@@ -382,6 +379,17 @@ def project():
 @app.route('/administrator', methods=["GET"])
 def administrator():
     return render_template("administrator.html")
+@app.route('/coursecontent/<course_name>')
+def coursecontent(course_name):
+    import urllib.parse
+    course_name_decoded = urllib.parse.unquote(course_name)
+
+    courses_content_path = os.path.join(app.root_path, 'data', 'coursecontent.json')
+    courses_content = DataManager.load_data(courses_content_path)
+
+    course = courses_content.get(course_name_decoded)
+
+    return render_template('coursecontent.html', course_name=course_name_decoded, course=course,  enumerate=enumerate)
 
 if __name__ == "__main__":
     app.run(debug=True)
