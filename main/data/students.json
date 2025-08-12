@@ -213,12 +213,14 @@
         "registered_courses": [
             "Calculus 1",
             "Probability",
-            "Physics 1"
+            "Physics 1",
+            "Literature"
         ],
         "paid_courses": [
             "Calculus 1",
             "Probability",
-            "Physics 1"
+            "Physics 1",
+            "Literature"
         ],
         "courses": {
             "Saturday": {

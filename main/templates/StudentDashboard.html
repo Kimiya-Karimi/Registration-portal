@@ -8,7 +8,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
-      background-color: #f8f9fa;
+      background-color: #ffffff;
       font-family: 'Segoe UI', sans-serif;
     }
     .sidebar {
@@ -36,7 +36,7 @@
       align-items: center;
       justify-content: center;
       font-weight: bold;
-      color: white;
+      color: rgb(255, 255, 255);
       font-size: 18px;
     }
     .support {
@@ -93,7 +93,7 @@
 
 
       .custom-modal-content {
-      background-color: #fefefe;
+      background-color: #ffffff;
       padding: 70px;
       border-radius: 15px;
       max-width: 500px;
@@ -188,10 +188,16 @@
       </div>
 
       <div class="col-md-3">
-      <a href="{{ url_for('mycourses') }}" class="text-white text-decoration-none">
-      <div class="card card-box p-3 text-center" role="button"
-      style="cursor: pointer; background-color: #ad1b1b; color: white;">My course</div>
+  <a href="{{ url_for('mycourses') }}" class="text-white text-decoration-none">
+    <div class="card bg-danger card-box shadow-sm" style="cursor: pointer;">
+      <div class="card-body text-center py-4">
+        <h5 class="card-title mb-0">My Courses</h5>
+      </div>
     </div>
+  </a>
+</div>
+
+
 
     <div class="row">
       
