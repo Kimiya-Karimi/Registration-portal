@@ -373,5 +373,64 @@
                 "16-18": []
             }
         }
+    },
+    "1404010121006": {
+        "first name": "sara",
+        "last name": "azizi",
+        "password": "scrypt:32768:8:1$ojeNykAkiMVYx4PU$f35b231bdfa88726c6a5ad8aca10ac9925b35968712b7e44a94693bcf1ec8c26e2093bee8ff4b17e31ff3c9f71e64ef7bd6f87a758a6ff161487dbdaf477658d",
+        "date of birth": "2002/12/03",
+        "gender": "female",
+        "national ID": "2701720301",
+        "student ID": "1404010121006",
+        "course list": [
+            "Calculus 1",
+            "Foundation Of Numerical Analysis",
+            "Probability"
+        ],
+        "registered_courses": [],
+        "paid_courses": [
+            "Calculus 2",
+            "Physics 1",
+            "Calculus 1",
+            "Foundation Of Numerical Analysis",
+            "Probability"
+        ],
+        "courses": {
+            "Saturday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Sunday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Monday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Tuesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Wednesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            }
+        }
     }
 }

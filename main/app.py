@@ -147,11 +147,13 @@ def AvailableCourses():
     courses_path= os.path.join(app.root_path, 'data', 'courses.json')
     courses = DataManager.load_data(courses_path)
     return render_template("AvailableCourses.html" , courses=courses)
+
 @app.route("/students")
 def students():
     students_path= os.path.join(app.root_path, 'data', 'students.json')
     students = DataManager.load_data(students_path)
     return render_template("students.html" , students=students)
+
 @app.route("/StudentSignup", methods=["GET", "POST"])
 def StudentSignup():
     if request.method == "POST":
@@ -231,6 +233,13 @@ def SeptemberTermCalender():
     timetable = DataManager.load_data("main/data/timetable.json")
     courses = DataManager.load_data("main/data/courses.json")
     return render_template("SeptemberTermCalender.html", timetable=timetable, courses=courses)
+
+
+@app.route("/FAQ", methods=["GET"])
+def FAQ():
+    return render_template("FAQ.html")
+
+
 @app.route("/registercourse", methods=["GET", "POST"])
 def registercourse():
     courses_path = os.path.join(app.root_path, "data", "courses.json")
@@ -238,7 +247,6 @@ def registercourse():
 
     if request.method == "POST":
         student_id = session.get("student_id")
-        
         students_path = os.path.join(app.root_path, "data", "students.json")
         timetable_path = os.path.join(app.root_path, "data", "timetable.json")
 
@@ -246,7 +254,6 @@ def registercourse():
         timetable = DataManager.load_data(timetable_path)
 
         course_name = request.form.get("course")
-
         student = students.get(student_id)
         if not student:
             flash("Student data not found.", "danger")
@@ -262,8 +269,7 @@ def registercourse():
         prereqs_raw = courses[course_name].get("prequisites", "")
         prereqs = [p.strip() for p in prereqs_raw.split(",")] if prereqs_raw else []
         prereqs = [p for p in prereqs if p] 
-
-        if not all(p in student.get("registered_courses", []) for p in prereqs):
+        if not all(p in student.get("paid_courses", []) for p in prereqs):
             flash(f"Prerequisites not met: {', '.join(prereqs)}", "danger")
             return redirect(url_for("registercourse"))
 
@@ -272,6 +278,7 @@ def registercourse():
             flash("Course is full.", "danger")
             return redirect(url_for("registercourse"))
 
+        
         student_courses = student.get("registered_courses", [])
         for day, slots in timetable.items():
             for time_slot, slot_courses in slots.items():
@@ -279,82 +286,95 @@ def registercourse():
                     if any(c in slot_courses for c in student_courses):
                         flash("Time conflict detected with another registered course.", "danger")
                         return redirect(url_for("registercourse"))
-        session["pending_course"] = course_name
+
+        
+        if course_name in student.get("course list", []):
+            flash("you have already registered this course.", "danger")
+            return redirect(url_for("registercourse"))
+
+        
+        if course_name not in student.get("registered_courses", []):
+            student["registered_courses"].append(course_name)
+            DataManager.save_data(students, students_path)
+
         return redirect(url_for("payment"))
 
     return render_template("registercourse.html", courses=courses)
 
-@app.route("/FAQ", methods=["GET"])
-def FAQ():
-    return render_template("FAQ.html")
+
 @app.route('/payment', methods=["GET"])
 def payment():
     student_id = session.get("student_id")
+    if not student_id:
+        return redirect(url_for("StudentLogin"))
+
     courses_path = os.path.join(app.root_path, 'data', 'courses.json')
-    all_courses = DataManager.load_data(courses_path)
     students_path = os.path.join(app.root_path, 'data', 'students.json')
+
+    all_courses = DataManager.load_data(courses_path)
     students = DataManager.load_data(students_path)
     student = students.get(student_id, {})
+
+    registered_courses = student.get("registered_courses", [])
     paid_courses = student.get("paid_courses", [])
+
     selected_courses = []
-    for name, course_data in all_courses.items():
-        course_data = course_data.copy() 
-        course_data["name"] = name
-        course_data["paid"] = name in paid_courses
-        selected_courses.append(course_data)
+    for name in registered_courses:
+        if name in all_courses:
+            course_data = all_courses[name].copy()
+            course_data["name"] = name
+            course_data["paid"] = name in paid_courses
+            selected_courses.append(course_data)
 
     return render_template("payment.html", selected_courses=selected_courses)
- 
+
 
 @app.route("/checkout", methods=["POST"])
 def checkout():
     student_id = session.get("student_id")
     if not student_id:
-        return redirect(url_for("StudentLogin"))  
+        return redirect(url_for("StudentLogin"))
+
     course_name = request.form.get("course_name")
     if not course_name:
         return "Course name is missing", 400
 
     students_path = os.path.join(app.root_path, 'data', 'students.json')
-    student_data = DataManager.load_data(students_path)
+    students = DataManager.load_data(students_path)
 
-    if student_id not in student_data:
-        return "Student ID not found in data", 404
+    if student_id not in students:
+        return "Student not found", 404
 
-    
-    if course_name not in student_data[student_id].get("registered_courses", []):
-        student_data[student_id]["registered_courses"].append(course_name)
+    student = students[student_id]
 
     
-    if course_name not in student_data[student_id].get("paid_courses", []):
-        student_data[student_id]["paid_courses"].append(course_name)
+    if course_name not in student.get("registered_courses", []):
+        student["registered_courses"].append(course_name)
 
-    DataManager.save_data(student_data, students_path)
+    
+    if course_name in student.get("registered_courses", []):
+        student["registered_courses"].remove(course_name)
+
+    if course_name not in student.get("paid_courses", []):
+        student["paid_courses"].append(course_name)
+
+    if course_name not in student.get("course list", []):
+        student["course list"].append(course_name)
+
+    DataManager.save_data(students, students_path)
 
     return redirect(url_for("payment"))
 
 
 @app.route('/payment_success', methods=["POST"])
 def payment_success():
-    course_name = request.form.get("course_name")
-    student_id = session.get("student_id")
-
-    students_path = os.path.join(app.root_path, 'data', 'students.json')
-    students = DataManager.load_data(students_path)
-
-    if student_id in students and course_name:
-        student = students[student_id]
-        paid_courses = student.get("paid_courses", [])
-        if course_name not in paid_courses:
-            paid_courses.append(course_name)
-            student["paid_courses"] = paid_courses
-            students[student_id] = student
-            DataManager.save_data(students_path, students)
-
     return redirect(url_for("payment"))
+
+
 @app.route('/payment_failed', methods=["POST"])
 def payment_failed():
     return redirect(url_for("payment"))
+
 
 @app.route("/mycourses")
 def mycourses():
@@ -366,9 +386,9 @@ def mycourses():
     students = DataManager.load_data(students_path)
     courses = DataManager.load_data(courses_path)
     student = students.get(student_id)
-    registered_courses = student.get("registered_courses", [])
-    registered_courses_info = {course: courses.get(course, {}) for course in registered_courses}
-    return render_template("mycourses.html", courses=registered_courses_info)
+    paid_courses = student.get("paid_courses", [])
+    paid_courses_info = {course: courses.get(course, {}) for course in paid_courses}
+    return render_template("mycourses.html", courses=paid_courses_info)
 
 @app.route('/query', methods=["GET","POST"])
 def query():
