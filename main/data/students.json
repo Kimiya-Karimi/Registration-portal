@@ -268,18 +268,24 @@
         "gender": "female",
         "national ID": "2221720301",
         "student ID": "1403010121234",
-        "course list": [],
-        "registered_courses": [
-            "Calculus 2",
-            "Calculus 1",
+        "course list": [
             "Advanced Programming",
-            "Physics 2"
+            "Physics 2",
+            "Calculus 1",
+            "Calculus 2",
+            "Physics 1",
+            "Literature",
+            "Sports"
         ],
+        "registered_courses": [],
         "paid_courses": [
             "Calculus 2",
             "Calculus 1",
             "Advanced Programming",
-            "Physics 2"
+            "Physics 2",
+            "Physics 1",
+            "Literature",
+            "Sports"
         ],
         "courses": {
             "Saturday": {
@@ -385,7 +391,11 @@
         "course list": [
             "Calculus 1",
             "Foundation Of Numerical Analysis",
-            "Probability"
+            "Probability",
+            "Sports",
+            "Literature",
+            "Foundation Of Mathematics",
+            "Basics Of Economics"
         ],
         "registered_courses": [],
         "paid_courses": [
@@ -393,7 +403,11 @@
             "Physics 1",
             "Calculus 1",
             "Foundation Of Numerical Analysis",
-            "Probability"
+            "Probability",
+            "Sports",
+            "Literature",
+            "Foundation Of Mathematics",
+            "Basics Of Economics"
         ],
         "courses": {
             "Saturday": {

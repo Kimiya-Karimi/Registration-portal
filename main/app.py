@@ -260,11 +260,14 @@ def registercourse():
             return redirect(url_for("registercourse"))
 
         
-        total_credit = sum(courses[c]["credit"] for c in student.get("registered_courses", []) if c in courses)
+        total_credit = sum(courses[c]["credit"] for c in student.get("paid_courses", []) if c in courses)
         if total_credit + courses[course_name]["credit"] > 20:
             flash("Cannot register more than 20 credits.", "danger")
             return redirect(url_for("registercourse"))
-
+        
+        if course_name in student.get("course list", []):
+            flash("you have already registered this course.", "danger")
+            return redirect(url_for("registercourse"))
         
         prereqs_raw = courses[course_name].get("prequisites", "")
         prereqs = [p.strip() for p in prereqs_raw.split(",")] if prereqs_raw else []
@@ -279,7 +282,7 @@ def registercourse():
             return redirect(url_for("registercourse"))
 
         
-        student_courses = student.get("registered_courses", [])
+        student_courses = student.get("paid_courses", [])
         for day, slots in timetable.items():
             for time_slot, slot_courses in slots.items():
                 if course_name in slot_courses:
@@ -287,10 +290,6 @@ def registercourse():
                         flash("Time conflict detected with another registered course.", "danger")
                         return redirect(url_for("registercourse"))
 
-        
-        if course_name in student.get("course list", []):
-            flash("you have already registered this course.", "danger")
-            return redirect(url_for("registercourse"))
 
         
         if course_name not in student.get("registered_courses", []):
@@ -341,17 +340,18 @@ def checkout():
 
     students_path = os.path.join(app.root_path, 'data', 'students.json')
     students = DataManager.load_data(students_path)
+    courses_path = os.path.join(app.root_path, 'data', 'courses.json')
+    course_data = DataManager.load_data(courses_path)
+
 
     if student_id not in students:
         return "Student not found", 404
 
     student = students[student_id]
-
     
     if course_name not in student.get("registered_courses", []):
         student["registered_courses"].append(course_name)
 
-    
     if course_name in student.get("registered_courses", []):
         student["registered_courses"].remove(course_name)
 
@@ -361,7 +361,13 @@ def checkout():
     if course_name not in student.get("course list", []):
         student["course list"].append(course_name)
 
+    if course_name in course_data:
+        course_data[course_name]["occupied"] += 1
+
     DataManager.save_data(students, students_path)
+    DataManager.save_data(course_data, courses_path)
+
+    flash(f'payment successful. {course_name} is now added to your course list.', 'success')
 
     return redirect(url_for("payment"))
 
@@ -393,12 +399,15 @@ def mycourses():
 @app.route('/query', methods=["GET","POST"])
 def query():
     return render_template("query.html")
+
 @app.route('/project', methods=["GET"])
 def project():
     return render_template("project.html")
+
 @app.route('/administrator', methods=["GET"])
 def administrator():
     return render_template("administrator.html")
+
 @app.route('/coursecontent/<course_name>')
 def coursecontent(course_name):
     import urllib.parse
