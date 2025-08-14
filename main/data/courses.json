@@ -142,7 +142,7 @@
     "Literature": {
         "credit": 3,
         "capacity": 40,
-        "occupied": 2,
+        "occupied": 3,
         "prequisites": "",
         "price": 35
     }

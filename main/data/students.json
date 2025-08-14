@@ -274,8 +274,7 @@
             "Calculus 1",
             "Calculus 2",
             "Physics 1",
-            "Literature",
-            "Sports"
+            "Literature"
         ],
         "registered_courses": [],
         "paid_courses": [
@@ -284,8 +283,7 @@
             "Advanced Programming",
             "Physics 2",
             "Physics 1",
-            "Literature",
-            "Sports"
+            "Literature"
         ],
         "courses": {
             "Saturday": {
@@ -409,6 +407,153 @@
             "Foundation Of Mathematics",
             "Basics Of Economics"
         ],
+        "courses": {
+            "Saturday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Sunday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Monday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Tuesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Wednesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            }
+        }
+    },
+    "1403010121006": {
+        "first name": "lila",
+        "last name": "lola",
+        "password": "scrypt:32768:8:1$Vj4Q1KZkfEbZ3VN0$b20cbf09caf5d795669bf44718746f5ae94983f82bbda441f071321586af1764675020e1ccfeebdfbb3bd8ff93114b360417a87026cc16a0cddfee3c7e952406",
+        "date of birth": "2004/11/11",
+        "gender": "female",
+        "national ID": "129192912",
+        "student ID": "1403010121006",
+        "course list": [],
+        "registered_courses": [],
+        "paid_courses": [],
+        "courses": {
+            "Saturday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Sunday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Monday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Tuesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Wednesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            }
+        }
+    },
+    "1403010121": {
+        "first name": "ui",
+        "last name": "ji",
+        "password": "scrypt:32768:8:1$2DGGIPrcrSTA5TA8$6caf02a819675e065026d4a834affb88a285341722e9893668f890fe59c3caaf1914e74a8ba956921825351081643dc37d8082b2de4e6ccac2ada7bb5405a93c",
+        "date of birth": "2004/11/11",
+        "gender": "female",
+        "national ID": "kijoi",
+        "student ID": "1403010121",
+        "course list": [],
+        "registered_courses": [],
+        "paid_courses": [],
+        "courses": {
+            "Saturday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Sunday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Monday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Tuesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            },
+            "Wednesday": {
+                "8-10": [],
+                "10-12": [],
+                "12-14": [],
+                "14-16": [],
+                "16-18": []
+            }
+        }
+    },
+    "1403010121010": {
+        "first name": "student1",
+        "last name": "ji",
+        "password": "scrypt:32768:8:1$I55SdIpZVhOafo13$411813ea16993893897fb35fa908958471b9fccecf212121201df92eabaf45ab3e173fd90ecf5d6179cf096ff3e137cbe9ea34abc504516ee9dbbc1cda3352d9",
+        "date of birth": "2005/10/09",
+        "gender": "male",
+        "national ID": "2581720301",
+        "student ID": "1403010121010",
+        "course list": [],
+        "registered_courses": [],
+        "paid_courses": [],
         "courses": {
             "Saturday": {
                 "8-10": [],

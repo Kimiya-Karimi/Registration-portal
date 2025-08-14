@@ -114,6 +114,7 @@ def AdminLogin():
             return render_template("AdminLogin.html", error=error)
     return render_template("AdminLogin.html")
 
+
 @app.route("/StudentLogin", methods=["GET", "POST"])
 def StudentLogin():
     if request.method == "POST":
@@ -142,11 +143,13 @@ def StudentLogin():
 
     return render_template("StudentLogin.html")
 
+
 @app.route("/AvailableCourses")
 def AvailableCourses():
     courses_path= os.path.join(app.root_path, 'data', 'courses.json')
     courses = DataManager.load_data(courses_path)
     return render_template("AvailableCourses.html" , courses=courses)
+
 
 @app.route("/students")
 def students():
@@ -154,36 +157,43 @@ def students():
     students = DataManager.load_data(students_path)
     return render_template("students.html" , students=students)
 
+
 @app.route("/StudentSignup", methods=["GET", "POST"])
 def StudentSignup():
     if request.method == "POST":
-        fname = request.form.get('fname')
-        lname = request.form.get('lname')
-        password = request.form.get('password')
-        dob = request.form.get('dob')
-        gender = request.form.get('gender')
-        nid = request.form.get('nid')
-        sid = request.form.get('sid')
+        fname = request.form.get('fname', '').strip()
+        lname = request.form.get('lname', '').strip()
+        password = request.form.get('password', '').strip()
+        dob_day = request.form.get('dob_day')
+        dob_month = request.form.get('dob_month')
+        dob_year = request.form.get('dob_year')
+        if not (dob_day and dob_month and dob_year):
+            return render_template("StudentSignup.html", error="Please enter your complete date of birth.")
+        dob = f"{dob_year.zfill(4)}/{dob_month.zfill(2)}/{dob_day.zfill(2)}"
+        gender = request.form.get('gender', '').strip()
+        nid = request.form.get('nid', '').strip()
+        sid = request.form.get('sid', '').strip()
 
         student_path = os.path.join(app.root_path, 'data', 'students.json')
         data = DataManager.load_data(student_path)
 
-        
         if not all([fname, lname, password, dob, gender, nid, sid]):
             return render_template("StudentSignup.html", error="Please fill out all the fields.")
 
-        
+        if len(sid) != 13:
+            return render_template("StudentSignup.html", error="Student ID must be 13 digits long.")
+
         def is_valid_password(password):
-            return len(password) >= 6 and any(char.isdigit() for char in password)
-
+            has_number = any(char.isdigit() for char in password)
+            has_letter = any(char.isalpha() for char in password)
+            return len(password) >= 6 and has_number and has_letter
+        
         if not is_valid_password(password):
-            return render_template("StudentSignup.html", error="Password must be at least 6 characters and include numbers.")
+            return render_template("StudentSignup.html", error="Password must be at least 6 characters and include both letters and numbers.")
 
-        
         if sid in data:
-            return render_template("StudentLogin.html", message="User already exists. Please log in.")
+            return render_template("StudentLogin.html", error="User already exists. Please log in.")
 
-        
         hashed_password = generate_password_hash(password)
         student_data = {
             'first name': fname,
@@ -205,16 +215,14 @@ def StudentSignup():
             }
         }
 
-        
         data[sid] = student_data
         DataManager.save_data(data, student_path)
 
-        
         session["student_id"] = sid
         return redirect(url_for("StudentDashboard"))
 
-    
     return render_template("StudentSignup.html")
+
 
 @app.route("/StudentDashboard",methods=["GET", "POST"])
 def StudentDashboard():
@@ -227,6 +235,7 @@ def StudentDashboard():
     if not student_data:
         return redirect(url_for("StudentLogin"))
     return render_template("StudentDashboard.html", student= student_data)
+
 
 @app.route("/SeptemberTermCalender")
 def SeptemberTermCalender():
