@@ -32,7 +32,7 @@
                 </select>
                 <select name="dob_year" required>
                     <option value="">Year</option>
-                    {% for year in range(1900, 2026) %}
+                    {% for year in range(1990, 2026) %}
                         <option value="{{ year }}">{{ year }}</option>
                     {% endfor %}
                 </select>
@@ -45,6 +45,7 @@
             </select><br>
             <input type="text" name="nid" placeholder="National ID"><br>
             <input type="text" name="sid" placeholder="Student ID"><br>
+            <input type="text" name="semester" placeholder="Semester"><br>
             <input type="password" name="password" placeholder="Password"><br>
             <button type="submit">Sign up</button>
         </form>

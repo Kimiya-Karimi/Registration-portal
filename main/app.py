@@ -1,4 +1,4 @@
-from flask import Flask , render_template , url_for , request , redirect , session, flash
+from flask import Flask , render_template , url_for , request , redirect , session, flash, jsonify
 import os , json , re 
 from werkzeug.security import generate_password_hash, check_password_hash
 app = Flask(__name__)
@@ -160,12 +160,12 @@ def StudentSignup():
         dob = f"{dob_year.zfill(4)}/{dob_month.zfill(2)}/{dob_day.zfill(2)}"
         gender = request.form.get('gender', '').strip()
         nid = request.form.get('nid', '').strip()
+        semester=request.form.get('semester')
         sid = request.form.get('sid', '').strip()
-
         student_path = os.path.join(app.root_path, 'data', 'students.json')
         data = DataManager.load_data(student_path)
 
-        if not all([fname, lname, password, dob, gender, nid, sid]):
+        if not all([fname, lname, password, dob, gender, nid, sid,semester]):
             return render_template("StudentSignup.html", error="Please fill out all the fields.")
 
         if len(sid) != 13:
@@ -191,16 +191,10 @@ def StudentSignup():
             'gender': gender,
             'national ID': nid,
             'student ID': sid,
+            'semester' : semester,
             'course list': [],
             'registered_courses': [],
             'paid_courses': [],
-            'courses': {
-                "Saturday": {"8-10": [], "10-12": [], "12-14": [], "14-16": [], "16-18": []},
-                "Sunday": {"8-10": [], "10-12": [], "12-14": [], "14-16": [], "16-18": []},
-                "Monday": {"8-10": [], "10-12": [], "12-14": [], "14-16": [], "16-18": []},
-                "Tuesday": {"8-10": [], "10-12": [], "12-14": [], "14-16": [], "16-18": []},
-                "Wednesday": {"8-10": [], "10-12": [], "12-14": [], "14-16": [], "16-18": []}
-            }
         }
 
         data[sid] = student_data
@@ -446,7 +440,29 @@ def studentsinfo():
 @app.route("/exams",methods=["GET", "POST"])
 def exams():
     return render_template("exams.html")
+@app.route("/submit_exam", methods=["POST"])
+def submit_exam():
+    STUDENT_JSON = "data/student.json"
+    data = request.json
+    username = data.get("username")  
+    exam_type = data.get("exam")     
+    score = data.get("score")
 
+    students = DataManager.load_data(STUDENT_JSON)
+    
+    for student in students:
+        if student["username"] == username:
+            if "exams" not in student:
+                student["exams"] = {}
+            student["exams"][exam_type] = {
+                "score": score,
+            }
+            break
+    else:
+        return jsonify({"status": "error", "msg": "student not found"}), 404
+
+    DataManager.save_data(STUDENT_JSON, students)
+    return jsonify({"status": "success"})
 if __name__ == "__main__":
     app.run(debug=True)
     

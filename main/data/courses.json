@@ -30,21 +30,21 @@
     "Probability": {
         "credit": 3,
         "capacity": 40,
-        "occupied": 0,
+        "occupied": 1,
         "prequisites": "Calculus 1",
         "price": 65
     },
     "Physics 1": {
         "credit": 3,
         "capacity": 35,
-        "occupied": 1,
+        "occupied": 2,
         "prequisites": "",
         "price": 65
     },
     "Physics 2": {
         "credit": 3,
         "capacity": 30,
-        "occupied": 1,
+        "occupied": 2,
         "prequisites": "Physics 1",
         "price": 70
     },
@@ -72,7 +72,7 @@
     "Computer Workshop": {
         "credit": 1,
         "capacity": 20,
-        "occupied": 0,
+        "occupied": 1,
         "prequisites": "",
         "price": 65
     },
@@ -142,7 +142,7 @@
     "Literature": {
         "credit": 3,
         "capacity": 40,
-        "occupied": 3,
+        "occupied": 4,
         "prequisites": "",
         "price": 35
     }

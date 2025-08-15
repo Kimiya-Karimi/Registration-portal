@@ -209,18 +209,20 @@
         "gender": "female",
         "national ID": "12345678",
         "student ID": "1403010121005",
-        "course list": [],
-        "registered_courses": [
+        "course list": [
             "Probability",
             "Physics 1",
             "Literature",
-            "Computer Workshop"
+            "Computer Workshop",
+            "Physics 2"
         ],
+        "registered_courses": [],
         "paid_courses": [
             "Probability",
             "Physics 1",
             "Literature",
-            "Computer Workshop"
+            "Computer Workshop",
+            "Physics 2"
         ],
         "courses": {
             "Saturday": {
@@ -591,5 +593,18 @@
                 "16-18": []
             }
         }
+    },
+    "1401010121006": {
+        "first name": "sina",
+        "last name": "fazli",
+        "password": "scrypt:32768:8:1$zmBmxaiWSXuyN5uV$3155ce4a6ccecd213013aeeb06fb5b29d579676cf6399cf4fde7cace34c63210321abb07499eb095b958544b8d906d588af6f675eb143f6bd61621164eb372df",
+        "date of birth": "1990/01/02",
+        "gender": "male",
+        "national ID": "123456789",
+        "student ID": "1401010121006",
+        "semester": "1",
+        "course list": [],
+        "registered_courses": [],
+        "paid_courses": []
     }
 }
