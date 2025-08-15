@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Courses & Students</title>
+<style>
+    body {
+        font-family: 'Arial', 'Helvetica', sans-serif;
+        background-color: #f8f9fa;
+        margin: 20px;
+        color: #0b1f36ff;
+    }
+
+    h1 {
+        text-align: center;
+        color: #285e9cff;
+        margin-bottom: 25px;
+        font-weight: 600;
+        font-size: 28px;
+    }
+
+    .table-container {
+        overflow-x: auto;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        border-radius: 8px;
+        background-color: white;
+        padding: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        min-width: 800px;
+    }
+
+    th, td {
+        border: 1px solid #bdc3c7;
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #0b1f36ff;
+        color: #ecf0f1;
+        font-weight: 600;
+        position: sticky;
+        top: 0;
+    }
+
+    td {
+        background-color: #ecf0f1;
+        vertical-align: top;
+    }
+
+    td:nth-child(odd) {
+        background-color: #f5f6fa;
+    }
+
+    td br {
+        line-height: 1.6;
+    }
+
+    
+    td:hover {
+        background-color: #dcdde1;
+    }
+
+</style>
+
+</head>
+<body>
+
+<h1>Courses & Registered Students</h1>
+
+<div class="table-container">
+<table>
+    <thead>
+        <tr>
+            {% for course in allowed_courses %}
+                <th>{{ course }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            {% for course in allowed_courses %}
+                <td>
+                    {% for student_id, info in students.items() %}
+                        {% if course in info.registered_courses %}
+                            <div style="padding:5px; border-bottom:1px solid #ccc;">
+                                {{ info["first name"] }} {{ info["last name"] }}<br>
+                                <small>ID: {{ student_id }}</small>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </td>
+            {% endfor %}
+        </tr>
+    </tbody>
+</table>
+
+</div>
+
+</body>
+</html>

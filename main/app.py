@@ -1,7 +1,6 @@
 from flask import Flask , render_template , url_for , request , redirect , session, flash
 import os , json , re 
 from werkzeug.security import generate_password_hash, check_password_hash
-from collections import defaultdict
 app = Flask(__name__)
 app.secret_key = "kimiakarimipanteagholampour"
 class DataManager:
@@ -24,7 +23,6 @@ def calculate_distribution(registrations):
         if course:
             distribution[course] = distribution.get(course, 0) + 1
     return distribution
-
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -35,16 +33,6 @@ def AdminDashboard():
     students = DataManager.load_data(students_path)
     courses_path = os.path.join(app.root_path, 'data' , 'students.json')
     courses = DataManager.load_data(courses_path)
-
-    # distribution = {}
-    # for student in students:
-    #     for course in student.get("courses", []):
-    #         distribution[course] = distribution.get(course, 0) + 1
-
-    # chart_data = {
-    #     "labels": [for course in distribution],
-    #     "data": list(distribution.values())
-    # }
 
     return render_template("AdminDashboard.html")
 
@@ -390,6 +378,36 @@ def coursecontent(course_name):
     course = courses_content.get(course_name_decoded)
 
     return render_template('coursecontent.html', course_name=course_name_decoded, course=course,  enumerate=enumerate)
+@app.route("/professor",methods=["GET", "POST"])
+def professor():
+    if request.method == "POST":
+        email = request.form['email']
+        password = request.form['password']
+        admins_path = os.path.join(app.root_path, 'data', 'professor.json')
+        admins = DataManager.load_data(admins_path)
+        if email.endswith('@paia.com') and email in admins and admins[email] == password:
+            return redirect(url_for('professorDashboard'))
+        else:
+            error = "incorrect email or password!"
+            return render_template("professor.html", error=error)
+    return render_template("professor.html")
+@app.route("/professorDashboard",methods=["GET", "POST"])
+def professorDashboard():
+    return render_template("professorDashboard.html")
+@app.route("/courses",methods=["GET", "POST"])
+def courses():
+    course_path=os.path.join(app.root_path, 'data', 'courses.json')
+    courses=DataManager.load_data(course_path)
+    return render_template("courses.html" , courses=courses)
+@app.route("/studentsinfo",methods=["GET", "POST"])
+def studentsinfo():
+    students_path=os.path.join(app.root_path, 'data', 'students.json')
+    students=DataManager.load_data(students_path)
+    allowed_courses = ["Programming", "Advanced Programming", "Data Structures And Algorithms", "Computer Workshop", "Database"]
+    return render_template("studentsinfo.html" , students=students , allowed_courses=allowed_courses)
+@app.route("/exams",methods=["GET", "POST"])
+def exams():
+    return render_template("exams.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

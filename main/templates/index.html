@@ -6,18 +6,38 @@
     <link rel="stylesheet" href="{{ url_for('static',filename='HomeStyle.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 
+
 </head>
 <body>
+    
     <div class="glass-full">
+        <div class="instagram-icon">
+            <a href="https://instagram.com/paia_university" target="_blank">
+            <img src="{{ url_for('static', filename='images/instagram-2016-2022-logo-brandlogos.net_zufpzg2mj.svg') }}" alt="Instagram" width="40" height="40">
+            </a>
+            </div>
+        <div class="telegram-icon">
+            <a href="https://t.me/paia_support" target="_blank">
+            <img src="{{ url_for('static', filename='images/Telegram-OfAicCi46_brandlogos.svg') }}" alt="Telegram" width="40" height="40"> 
+            </a>
+            </div> 
+        <div class="contact-number">
+            <a href="tel:+982112345678">
+            <img src="{{ url_for('static', filename='images/phone.png') }}" alt="call" width="40" height="40">    
+            </a>
+        </div>
+       
         <div class="glass-content"> 
             <div class="title">Online Computer Science Education Platform</div> 
             <div class="buttons"> 
             <a href="AdminLogin">Admin Login</a>
             <a href="StudentLogin">Student Login / Sign up </a>
+            <a href="professor">Professor Login</a>
             <a href="SeptemberTermCalender">September Term Calender</a>
             <a href="AvailableCourses">Available Courses</a>
             </div>
         </div>    
-    </div>    
+    </div> 
+
 </body>
 </html>

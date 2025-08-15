@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Courses</title>
+</head>
+<body>
+<style>
+    body {
+  font-family: "Segoe UI", sans-serif;
+  background: rgb(252, 252, 253);
+  margin: 0;
+  padding: 40px;
+}
+
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.course-card {
+  width: 200px;
+  height: 120px;
+  background: rgb(239, 238, 238);
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-align: center;
+  padding: 30px 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(3px);
+  background: rgba(0, 0, 0, 0.4);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 30px;
+  border-radius: 20px;
+  width: 400px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  color: #000;
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+.courses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+}
+
+.course-card {
+  width: 250px;
+  height: 160px;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s ease;
+}
+
+.course-card:hover {
+  transform: scale(1.05);
+}
+
+.glass-effect {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.849); 
+}
+
+</style>
+<h1 style="text-align:center;">Courses List</h1>
+{% set allowed_courses = ["Programming", "Advanced Programming", "Data Structures And Algorithms", "Computer Workshop", "Database"] %}
+
+<div class="courses-container">
+  {% for course_name, info in courses.items() %}
+    {% if course_name in allowed_courses %}
+    <div class="course-card"
+         style="background-image: url('/static/images/{{ course_name | replace(' ', '_') | lower }}.jpg');"
+         onclick="openModal('{{ course_name }}', '{{ info.credit }}', '{{ info.capacity }}', '{{ info.occupied }}')">
+      <div class="glass-effect">
+        <h3>{{ course_name }}</h3>
+      </div>
+    </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+
+<div id="courseModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2 id="modal-title"></h2>
+    <p><strong>Credits:</strong> <span id="modal-credit"></span></p>
+    <p><strong>Capacity:</strong> <span id="modal-capacity"></span></p>
+    <p><strong>Occupied:</strong> <span id="modal-occupied"></span></p>
+    <form method="POST" action="/courses">
+        <input type="hidden" name="course" id="courseInput">
+        <button class="button" type="submit">Add content</button>
+    </form>
+  </div>
+</div>
+
+
+<script>
+  function openModal(name, credit, capacity, occupied) {
+    document.getElementById("modal-title").textContent = name;
+    document.getElementById("modal-credit").textContent = credit;
+    document.getElementById("modal-capacity").textContent = capacity;
+    document.getElementById("modal-occupied").textContent = occupied;
+    document.getElementById("courseModal").style.display = "flex";
+  }
+
+  function closeModal() {
+    document.getElementById("courseModal").style.display = "none";
+  }
+
+  window.onclick = function (event) {
+    let modal = document.getElementById("courseModal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+
+</body>
+</html>

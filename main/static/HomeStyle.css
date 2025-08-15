@@ -13,10 +13,9 @@ body {
     font-weight: bold;
     color: #f4f3f3; 
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 60px;
 }
-
 .glass-full {
     font-size: x-large;
     height: 100vh;
@@ -45,7 +44,27 @@ body {
 .glass-content:hover {
     color: rgba(0, 0, 0, 0.555);
 }
-
+.instagram-icon {
+  position: fixed;  
+  top: 10px;
+  left: 10px;
+  padding: 5px; 
+  z-index: 1000; 
+}
+.telegram-icon{
+  position: fixed;  
+  top: 10px;
+  left: 60px;
+  padding: 5px; 
+  z-index: 1000; 
+}
+.contact-number{
+  position: fixed;  
+  top: 10px;
+  left: 110px;
+  padding: 5px; 
+  z-index: 1000;   
+}
 .buttons a {
     display: block;
     height: 40px;
@@ -73,7 +92,7 @@ body {
 .buttons a:nth-child(2) { animation-delay: 1.4s; }
 .buttons a:nth-child(3) { animation-delay: 1.6s; }
 .buttons a:nth-child(4) { animation-delay: 1.8s; }
-
+.buttons a:nth-child(5) { animation-delay: 2s;}
 @keyframes fadeSlideUp {
   to {
     opacity: 1;

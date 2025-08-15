@@ -211,16 +211,16 @@
         "student ID": "1403010121005",
         "course list": [],
         "registered_courses": [
-            "Calculus 1",
             "Probability",
             "Physics 1",
-            "Literature"
+            "Literature",
+            "Computer Workshop"
         ],
         "paid_courses": [
-            "Calculus 1",
             "Probability",
             "Physics 1",
-            "Literature"
+            "Literature",
+            "Computer Workshop"
         ],
         "courses": {
             "Saturday": {
