@@ -8,6 +8,19 @@
 <body>
   <div class="container">
     <h1>Register Courses</h1>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div>
+          {% for category, message in messages %}
+            <p style="color: {% if category == 'success' %}green{% elif category == 'danger' %}red{% else %}black{% endif %};">
+              {{ message }}
+            </p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
     <table class="glass-table">
       <thead>
         <tr>
@@ -30,14 +43,10 @@
           <td>{{ course.prequisites }}</td>
           <td>${{ course.price }}</td>
           <td>
-            {% if course.paid %}
-            <button class="paid-btn" disabled style="background-color:green; color:white;">✅ Paid</button>
-            {% else %}
             <form action="{{ url_for('checkout') }}" method="POST">
                 <input type="hidden" name="course_name" value="{{ course.name }}">
                 <button type="submit" class="checkout-btn">Checkout</button>
             </form>
-            {% endif %}
           </td>
         </tr>
         {% endfor %}

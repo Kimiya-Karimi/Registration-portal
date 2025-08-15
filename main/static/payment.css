@@ -64,3 +64,8 @@ th {
   border-radius: 12px;
   cursor: default;
 }
+
+.flash.success {
+    color: green;
+    font-weight: bold;
+}

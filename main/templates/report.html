@@ -112,9 +112,9 @@
         <td data-label="student ID">{{ student_id }}</td>
         <td data-label="Name">{{ info['first name'] }} {{ info['last name'] }}</td>
         <td data-label="Registered Course">
-          {% if info['registered_courses'] %}
+          {% if info['paid_courses'] %}
             <ul>
-              {% for course in info['registered_courses'] %}
+              {% for course in info['paid_courses'] %}
                 <li>{{ course }}</li>
               {% endfor %}
             </ul>

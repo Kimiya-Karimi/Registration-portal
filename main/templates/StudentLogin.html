@@ -3,27 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StudentLogin</title>
+    <title>Student Login</title>
     <link rel="stylesheet" href="{{ url_for('static',filename='StudentLogin.css') }}">
 </head>
 <body>
     <div class="login-container">
         <h2>Student Login</h2>
-            <form action="{{ url_for('StudentLogin')}}" method="POST">
-            <input type="text" name="StudentID" placeholder="StudentID">
+
+        {% if error %}
+        <p style="color: red; margin-bottom: 10px;">{{ error }}</p>
+        {% endif %}
+
+        <form action="{{ url_for('StudentLogin')}}" method="POST">
+            <input type="text" name="StudentID" placeholder="Student ID">
             <input type="password" name="password" placeholder="Password">
             <input type="submit" value="Log in"> 
             <p>Don't have an account? 
-            <a href="{{ url_for('StudentSignup') }}" method="POST">Sign up</a>
+                <a href="{{ url_for('StudentSignup') }}">Sign up</a>
             </p>   
         </form>
     </div>
-    {% if error %}
-    <p style="color: red;">{{ error }}</p>
-    {% endif %}
-    {% if message %}
-    <p style="color: green;">{{ message }}</p>
-    {% endif %}
-        
 </body>
 </html>
