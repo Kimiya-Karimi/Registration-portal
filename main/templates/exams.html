@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam Scores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='exams.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Exam Scores</h2>
+        <div class="table wrapper">
+            <table class="glass-table">
+                <thead>
+            <tr>
+                <th>Name</th>
+                <th>Student ID</th>
+                <th>Python Quiz</th>
+                <th>C++ Quiz</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sid, info in student_scores.items() %}
+            <tr>
+                <td>{{ info.name }}</td>
+                <td>{{ sid }}</td>
+                <td>{% if info.quizzes.get('python quiz') is not none %}{{ info.quizzes['python quiz'] }}{% endif %}</td>
+                <td>{% if info.quizzes.get('C++ quiz') is not none %}{{ info.quizzes['C++ quiz'] }}{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+

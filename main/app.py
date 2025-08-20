@@ -35,6 +35,7 @@ def calculate_distribution(registrations):
         if course:
             distribution[course] = distribution.get(course, 0) + 1
     return distribution
+<<<<<<< Updated upstream
 @app.before_request
 def _start_timer():
     g._start_time = time.time()
@@ -58,6 +59,9 @@ def _handle_exception(e):
     return "Internal Server Error", 500
 def log_event(event, **fields):
     app.logger.info("EVENT | %s | %s", event, fields)
+=======
+
+>>>>>>> Stashed changes
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -255,6 +259,10 @@ def StudentSignup():
             'course list': [],
             'registered_courses': [],
             'paid_courses': [],
+            'quizzes': {
+                'python quiz': None,
+                'C++ quiz': None
+            }
         }
 
         data[sid] = student_data
@@ -463,17 +471,91 @@ def mycourses():
     log_event("student_not_found", student_id=student_id)
     return render_template("mycourses.html", courses=paid_courses_info)
 
-@app.route('/query', methods=["GET","POST"])
+
+@app.route('/query', methods=["GET", "POST"])
 def query():
-    return render_template("query.html")
+    student_id = session.get("student_id")
+    if not student_id:
+        return redirect(url_for("StudentLogin"))
+
+    student_path = os.path.join(app.root_path, 'data', 'students.json')
+    students = DataManager.load_data(student_path)
+    student = students.get(student_id)
+
+    python_answers = {
+        "q1": "print",
+        "q2": "int",
+        "q3": "for",
+        "q4": "def",
+        "q5": "2",
+        "q6": "555",
+        "q7": "Lists are mutable, tuples are immutable",
+        "q8": "5",
+        "q9": "from math import sqrt",
+        "q10": "4",
+    }
+
+    cpp_answers = {
+        "q1": "cout",
+        "q2": "int x;",
+        "q3": "do-while",
+        "q4": "const",
+        "q5": "A",
+        "q6": "2",
+        "q7": "iostream",
+        "q8": "2",
+        "q9": "real",
+        "q10": "6",
+    }
+
+    message = None
+    results = {}
+
+    if request.method == "POST":
+        form = request.form
+        if "pythonForm" in form:
+            score = 0
+            question_results = {}
+            for q, ans in python_answers.items():
+                user_ans = form.get(q)
+                correct = user_ans == ans
+                question_results[q] = {"user": user_ans, "correct": ans, "is_correct": correct}
+                if correct:
+                    score += 1
+            student['quizzes']['python quiz'] = score
+            results = question_results
+            message = f"Python exam submitted! Score: {score}/10"
+
+        elif "cppForm" in form:
+            score = 0
+            question_results = {}
+            for q, ans in cpp_answers.items():
+                user_ans = form.get(q)
+                correct = user_ans == ans
+                question_results[q] = {"user": user_ans, "correct": ans, "is_correct": correct}
+                if correct:
+                    score += 1
+            student['quizzes']['C++ quiz'] = score
+            results = question_results
+            message = f"C++ exam submitted! Score: {score}/10"
+
+        students[student_id] = student
+        DataManager.save_data(students, student_path)
+
+    return render_template("query.html", student=student, message=message, results=results)
+
+
+
 
 @app.route('/project', methods=["GET"])
 def project():
     return render_template("project.html")
 
+
 @app.route('/administrator', methods=["GET"])
 def administrator():
     return render_template("administrator.html")
+
 
 @app.route('/coursecontent/<course_name>')
 def coursecontent(course_name):
@@ -486,6 +568,8 @@ def coursecontent(course_name):
     course = courses_content.get(course_name_decoded)
 
     return render_template('coursecontent.html', course_name=course_name_decoded, course=course,  enumerate=enumerate)
+
+
 @app.route("/professor",methods=["GET", "POST"])
 def professor():
     if request.method == "POST":
@@ -499,23 +583,42 @@ def professor():
             error = "incorrect email or password!"
             return render_template("professor.html", error=error)
     return render_template("professor.html")
+
+
 @app.route("/professorDashboard",methods=["GET", "POST"])
 def professorDashboard():
     return render_template("professorDashboard.html")
+
+
 @app.route("/courses",methods=["GET", "POST"])
 def courses():
     course_path=os.path.join(app.root_path, 'data', 'courses.json')
     courses=DataManager.load_data(course_path)
     return render_template("courses.html" , courses=courses)
+
+
 @app.route("/studentsinfo",methods=["GET", "POST"])
 def studentsinfo():
     students_path=os.path.join(app.root_path, 'data', 'students.json')
     students=DataManager.load_data(students_path)
     allowed_courses = ["Programming", "Advanced Programming", "Data Structures And Algorithms", "Computer Workshop", "Database"]
     return render_template("studentsinfo.html" , students=students , allowed_courses=allowed_courses)
-@app.route("/exams",methods=["GET", "POST"])
+
+
+@app.route("/exams")
 def exams():
-    return render_template("exams.html")
+    students_path = os.path.join(app.root_path, 'data', 'students.json')
+    students = DataManager.load_data(students_path)
+
+    student_scores = {}
+    for sid, data in students.items():
+        student_scores[sid] = {
+            "name": f"{data['first name']} {data['last name']}",
+            "quizzes": data.get("quizzes", {})
+        }
+    return render_template("exams.html", student_scores=student_scores)
+
+
 @app.route("/submit_exam", methods=["POST"])
 def submit_exam():
     STUDENT_JSON = "data/student.json"

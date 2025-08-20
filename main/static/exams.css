@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+.glass-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.glass-table th, .glass-table td {
+    padding: 12px 20px;
+    text-align: center;
+    color: #333;
+}
+
+.glass-table thead {
+    background: rgba(255, 255, 255, 0.25);
+    font-weight: bold;
+}
+
+.glass-table tbody tr {
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: background 0.3s;
+}
+
+.glass-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.1);
+    cursor: default;
+}
