@@ -1,8 +1,20 @@
-from flask import Flask , render_template , url_for , request , redirect , session, flash, jsonify
-import os , json , re 
+from flask import Flask , render_template , url_for , request , redirect , session, flash, jsonify, g
+import os , json , re, logging, uuid, time 
 from werkzeug.security import generate_password_hash, check_password_hash
+from logging.handlers import RotatingFileHandler
 app = Flask(__name__)
 app.secret_key = "kimiakarimipanteagholampour"
+os.makedirs("logs", exist_ok=True)
+
+app_handler = RotatingFileHandler(
+    "logs/app.log", maxBytes=1_000_000, backupCount=5, encoding="utf-8"
+)
+app_handler.setLevel(logging.INFO)
+app_handler.setFormatter(logging.Formatter(
+    "%(asctime)s | %(levelname)s | %(message)s"
+))
+app.logger.setLevel(logging.INFO)
+app.logger.addHandler(app_handler)
 class DataManager:
     @staticmethod
     def load_data(file_path):
@@ -23,6 +35,29 @@ def calculate_distribution(registrations):
         if course:
             distribution[course] = distribution.get(course, 0) + 1
     return distribution
+@app.before_request
+def _start_timer():
+    g._start_time = time.time()
+    g._rid = str(uuid.uuid4())[:8]  
+@app.after_request
+def _log_request(response):
+    try:
+        duration_ms = int((time.time() - g._start_time) * 1000)
+    except Exception:
+        duration_ms = -1
+    ip = request.headers.get("X-Forwarded-For", request.remote_addr)
+    ua = request.headers.get("User-Agent", "-")
+    app.logger.info(
+        f"REQ {g._rid} | {ip} | {request.method} {request.path} "
+        f"| {response.status_code} | {duration_ms}ms | UA={ua}"
+    )
+    return response
+@app.errorhandler(Exception)
+def _handle_exception(e):
+    app.logger.exception(f"ERR {getattr(g, '_rid', '-')}: Unhandled exception")
+    return "Internal Server Error", 500
+def log_event(event, **fields):
+    app.logger.info("EVENT | %s | %s", event, fields)
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -78,6 +113,18 @@ def Addcourse():
                 timetable[day] = {}
             if time not in timetable[day]:
                 timetable[day][time] = []
+        log_event(
+            "course_added",
+            course_name=name,
+            credit=credit,
+            capacity=capacity,
+            occupied=occupied,
+            prerequisites=prerequisites,
+            price=price,
+            classes=classes,
+            day=day,
+            time=time
+        )
     return render_template("Addcourse.html")            
 
 @app.route("/report")
@@ -96,10 +143,13 @@ def AdminLogin():
         admins_path = os.path.join(app.root_path, 'data', 'admins.json')
         admins = DataManager.load_data(admins_path)
         if email.endswith('@paia.com') and email in admins and admins[email] == password:
+            log_event("admin_login_success", email=email)
             return redirect(url_for('AdminDashboard'))
         else:
+            log_event("admin_login_failed", email=email)
             error = "incorrect email or password!"
             return render_template("AdminLogin.html", error=error)
+    
     return render_template("AdminLogin.html")
 
 
@@ -110,23 +160,28 @@ def StudentLogin():
         password = request.form.get('password', '').strip()
 
         if not StudentID or not password:
+            log_event("student_login_failed", reason="missing_fields", student_id=StudentID)
             return render_template("StudentLogin.html", error="Please enter both ID and password.")
 
         if len(StudentID) != 13:
+            log_event("student_login_failed", reason="invalid_id_length", student_id=StudentID)
             return render_template("StudentLogin.html", error="Student ID must be 13 digits long.")
 
         students_path = os.path.join(app.root_path, 'data', 'students.json')
         students = DataManager.load_data(students_path)
 
         if StudentID not in students:
+            log_event("student_login_failed", reason="invalid_student_id", student_id=StudentID)
             return render_template("StudentLogin.html", error="Student ID not found.")
 
         stored_hashed_password = students[StudentID]['password']
 
         if check_password_hash(stored_hashed_password, password):
+            log_event("student_login_success", student_id=StudentID)
             session["student_id"] = StudentID
             return redirect(url_for('StudentDashboard'))
         else:
+            log_event("student_login_failed",reason="wrong_password",student_id=StudentID)
             return render_template("StudentLogin.html", error="Incorrect password.")
 
     return render_template("StudentLogin.html")
@@ -156,6 +211,7 @@ def StudentSignup():
         dob_month = request.form.get('dob_month')
         dob_year = request.form.get('dob_year')
         if not (dob_day and dob_month and dob_year):
+            log_event("student_signup_failed", reason="missing_dob", sid=None)
             return render_template("StudentSignup.html", error="Please enter your complete date of birth.")
         dob = f"{dob_year.zfill(4)}/{dob_month.zfill(2)}/{dob_day.zfill(2)}"
         gender = request.form.get('gender', '').strip()
@@ -166,9 +222,11 @@ def StudentSignup():
         data = DataManager.load_data(student_path)
 
         if not all([fname, lname, password, dob, gender, nid, sid,semester]):
+            log_event("student_signup_failed", reason="missing_fields", sid=sid)
             return render_template("StudentSignup.html", error="Please fill out all the fields.")
 
         if len(sid) != 13:
+            log_event("student_signup_failed", reason="invalid_id_length", sid=sid)
             return render_template("StudentSignup.html", error="Student ID must be 13 digits long.")
 
         def is_valid_password(password):
@@ -177,9 +235,11 @@ def StudentSignup():
             return len(password) >= 6 and has_number and has_letter
         
         if not is_valid_password(password):
+            log_event("student_signup_failed", reason="weak_password", sid=sid)
             return render_template("StudentSignup.html", error="Password must be at least 6 characters and include both letters and numbers.")
 
         if sid in data:
+            log_event("student_signup_failed", reason="user_exists", sid=sid)
             return render_template("StudentLogin.html", error="User already exists. Please log in.")
 
         hashed_password = generate_password_hash(password)
@@ -201,6 +261,7 @@ def StudentSignup():
         DataManager.save_data(data, student_path)
 
         session["student_id"] = sid
+        log_event("student_signup_success", sid=sid)
         return redirect(url_for("StudentDashboard"))
 
     return render_template("StudentSignup.html")
@@ -210,12 +271,15 @@ def StudentSignup():
 def StudentDashboard():
     student_id = session.get("student_id")
     if not student_id:
+        log_event("student_dashboard_access_failed", reason="no_session", student_id=student_id)
         return redirect(url_for("StudentLogin"))
     students_path = os.path.join(app.root_path, 'data', 'students.json')
     students = DataManager.load_data(students_path)
     student_data = students.get(student_id)
     if not student_data:
+        log_event("student_dashboard_access_failed", reason="student_not_found", student_id=student_id)
         return redirect(url_for("StudentLogin"))
+    log_event("student_dashboard_access_success", student_id=student_id)
     return render_template("StudentDashboard.html", student= student_data)
 
 
@@ -247,16 +311,18 @@ def registercourse():
         course_name = request.form.get("course")
         student = students.get(student_id)
         if not student:
+            log_event("course_register_failed", reason="student_not_found", student_id=student_id, course=course_name)
             flash("Student data not found.", "danger")
             return redirect(url_for("registercourse"))
 
-        
         total_credit = sum(courses[c]["credit"] for c in student.get("paid_courses", []) if c in courses)
         if total_credit + courses[course_name]["credit"] > 20:
+            log_event("course_register_failed", reason="credit_limit_exceeded", student_id=student_id, course=course_name)
             flash("Cannot register more than 20 credits.", "danger")
             return redirect(url_for("registercourse"))
         
         if course_name in student.get("course list", []):
+            log_event("course_register_failed", reason="course_already_exists", student_id=student_id, course=course_name)
             flash("you have already registered this course.", "danger")
             return redirect(url_for("registercourse"))
         
@@ -264,11 +330,13 @@ def registercourse():
         prereqs = [p.strip() for p in prereqs_raw.split(",")] if prereqs_raw else []
         prereqs = [p for p in prereqs if p] 
         if not all(p in student.get("paid_courses", []) for p in prereqs):
+            log_event("course_register_failed", reason="prerequisites_not_met", student_id=student_id, course=course_name, missing=prereqs)
             flash(f"Prerequisites not met: {', '.join(prereqs)}", "danger")
             return redirect(url_for("registercourse"))
 
         
         if courses[course_name]["occupied"] >= courses[course_name]["capacity"]:
+            log_event("course_register_failed", reason="capacity_full", student_id=student_id, course=course_name)
             flash("Course is full.", "danger")
             return redirect(url_for("registercourse"))
 
@@ -278,12 +346,14 @@ def registercourse():
             for time_slot, slot_courses in slots.items():
                 if course_name in slot_courses:
                     if any(c in slot_courses for c in student_courses):
+                        log_event("course_register_failed", reason="time_conflict", student_id=student_id, course=course_name, conflict_with=slot_courses)
                         flash("Time conflict detected with another registered course.", "danger")
                         return redirect(url_for("registercourse"))
 
 
         
         if course_name not in student.get("registered_courses", []):
+            log_event("course_register_success", student_id=student_id, course=course_name)
             student["registered_courses"].append(course_name)
             DataManager.save_data(students, students_path)
 
@@ -295,9 +365,9 @@ def registercourse():
 @app.route('/payment', methods=["GET"])
 def payment():
     student_id = session.get("student_id")
-    if not student_id:
+    if not student_id or student_id not in students:
+        log_event("payment_page_denied", reason="not_logged_in", student_id=student_id)
         return redirect(url_for("StudentLogin"))
-
     courses_path = os.path.join(app.root_path, 'data', 'courses.json')
     students_path = os.path.join(app.root_path, 'data', 'students.json')
 
@@ -315,7 +385,12 @@ def payment():
             course_data["name"] = name
             course_data["paid"] = name in paid_courses
             selected_courses.append(course_data)
-
+    log_event(
+        "payment_page_viewed",
+        student_id=student_id,
+        registered_count=len(registered_courses),
+        paid_count=len(paid_courses)
+    )
     return render_template("payment.html", selected_courses=selected_courses)
 
 
@@ -323,6 +398,7 @@ def payment():
 def checkout():
     student_id = session.get("student_id")
     if not student_id:
+        log_event("checkout_page_denied", reason="not_logged_in", student_id=student_id)
         return redirect(url_for("StudentLogin"))
 
     course_name = request.form.get("course_name")
@@ -330,21 +406,18 @@ def checkout():
         return "Course name is missing", 400
 
     students_path = os.path.join(app.root_path, 'data', 'students.json')
-    students = DataManager.load_data(students_path)
     courses_path = os.path.join(app.root_path, 'data', 'courses.json')
-    course_data = DataManager.load_data(courses_path)
 
+    students = DataManager.load_data(students_path)
+    courses = DataManager.load_data(courses_path)
 
     if student_id not in students:
         return "Student not found", 404
 
     student = students[student_id]
-    
+
     if course_name not in student.get("registered_courses", []):
         student["registered_courses"].append(course_name)
-
-    if course_name in student.get("registered_courses", []):
-        student["registered_courses"].remove(course_name)
 
     if course_name not in student.get("paid_courses", []):
         student["paid_courses"].append(course_name)
@@ -352,14 +425,15 @@ def checkout():
     if course_name not in student.get("course list", []):
         student["course list"].append(course_name)
 
-    if course_name in course_data:
-        course_data[course_name]["occupied"] += 1
+    if course_name in courses:
+        courses[course_name]["occupied"] += 1
+        courses[course_name]["capacity"] -= 1
 
     DataManager.save_data(students, students_path)
-    DataManager.save_data(course_data, courses_path)
+    DataManager.save_data(courses, courses_path)
 
-    flash(f'payment successful. {course_name} is now added to your course list.', 'success')
-
+    flash(f'Payment successful. {course_name} is now added to your course list.', 'success')
+    log_event("checkout_success", student_id=student_id, course_name=course_name)
     return redirect(url_for("payment"))
 
 
@@ -377,6 +451,7 @@ def payment_failed():
 def mycourses():
     student_id = session.get("student_id")
     if not student_id:
+        log_event("student_not_found", student_id=student_id)
         return redirect(url_for("StudentLogin"))
     students_path = os.path.join(app.root_path, "data", "students.json")
     courses_path = os.path.join(app.root_path, "data", "courses.json")
@@ -385,6 +460,7 @@ def mycourses():
     student = students.get(student_id)
     paid_courses = student.get("paid_courses", [])
     paid_courses_info = {course: courses.get(course, {}) for course in paid_courses}
+    log_event("student_not_found", student_id=student_id)
     return render_template("mycourses.html", courses=paid_courses_info)
 
 @app.route('/query', methods=["GET","POST"])
