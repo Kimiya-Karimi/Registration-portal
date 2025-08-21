@@ -1,22 +1,22 @@
 {
     "Calculus 1": {
         "credit": 3,
-        "capacity": 45,
-        "occupied": 3,
+        "capacity": 39,
+        "occupied": 9,
         "prequisites": "",
         "price": 60
     },
     "Calculus 2": {
         "credit": 3,
-        "capacity": 45,
-        "occupied": 3,
+        "capacity": 44,
+        "occupied": 4,
         "prequisites": "Calculus 1",
         "price": 70
     },
     "Programming": {
         "credit": 3,
-        "capacity": 40,
-        "occupied": 1,
+        "capacity": 32,
+        "occupied": 9,
         "prequisites": "",
         "price": 80
     },
@@ -29,8 +29,8 @@
     },
     "Probability": {
         "credit": 3,
-        "capacity": 40,
-        "occupied": 1,
+        "capacity": 33,
+        "occupied": 8,
         "prequisites": "Calculus 1",
         "price": 65
     },
@@ -64,8 +64,8 @@
     },
     "Foundation Of Mathematics": {
         "credit": 3,
-        "capacity": 40,
-        "occupied": 1,
+        "capacity": 38,
+        "occupied": 3,
         "prequisites": "Calculus 1",
         "price": 70
     },

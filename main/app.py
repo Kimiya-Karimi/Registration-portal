@@ -373,15 +373,16 @@ def registercourse():
 
 @app.route('/payment', methods=["GET"])
 def payment():
+    courses_path = os.path.join(app.root_path, 'data', 'courses.json')
+    students_path = os.path.join(app.root_path, 'data', 'students.json')
+    all_courses = DataManager.load_data(courses_path)
+    students = DataManager.load_data(students_path)
+
     student_id = session.get("student_id")
     if not student_id or student_id not in students:
         log_event("payment_page_denied", reason="not_logged_in", student_id=student_id)
         return redirect(url_for("StudentLogin"))
-    courses_path = os.path.join(app.root_path, 'data', 'courses.json')
-    students_path = os.path.join(app.root_path, 'data', 'students.json')
-
-    all_courses = DataManager.load_data(courses_path)
-    students = DataManager.load_data(students_path)
+    
     student = students.get(student_id, {})
 
     registered_courses = student.get("registered_courses", [])
@@ -425,8 +426,8 @@ def checkout():
 
     student = students[student_id]
 
-    if course_name not in student.get("registered_courses", []):
-        student["registered_courses"].append(course_name)
+    if course_name in student.get("registered_courses", []):
+        student["registered_courses"].remove(course_name)
 
     if course_name not in student.get("paid_courses", []):
         student["paid_courses"].append(course_name)
