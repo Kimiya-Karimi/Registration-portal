@@ -1,4 +1,4 @@
-from flask import Flask , render_template , url_for , request , redirect , session, flash, jsonify, g
+from flask import Flask , render_template , url_for , request , redirect , session, flash, jsonify, g , current_app
 import os , json , re, logging, uuid, time 
 from werkzeug.security import generate_password_hash, check_password_hash
 from logging.handlers import RotatingFileHandler
@@ -35,7 +35,6 @@ def calculate_distribution(registrations):
         if course:
             distribution[course] = distribution.get(course, 0) + 1
     return distribution
-<<<<<<< Updated upstream
 @app.before_request
 def _start_timer():
     g._start_time = time.time()
@@ -59,9 +58,6 @@ def _handle_exception(e):
     return "Internal Server Error", 500
 def log_event(event, **fields):
     app.logger.info("EVENT | %s | %s", event, fields)
-=======
-
->>>>>>> Stashed changes
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -293,8 +289,13 @@ def StudentDashboard():
 
 @app.route("/SeptemberTermCalender")
 def SeptemberTermCalender():
-    timetable = DataManager.load_data("main/data/timetable.json")
-    courses = DataManager.load_data("main/data/courses.json")
+    base_path = os.path.join(current_app.root_path, "data")
+    timetable_path = os.path.join(base_path, "timetable.json")
+    courses_path = os.path.join(base_path, "courses.json")
+
+    timetable = DataManager.load_data(timetable_path)
+    courses = DataManager.load_data(courses_path)
+
     return render_template("SeptemberTermCalender.html", timetable=timetable, courses=courses)
 
 
