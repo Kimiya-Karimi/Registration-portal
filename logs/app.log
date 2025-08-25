@@ -871,3 +871,250 @@ Traceback (most recent call last):
     raise NotFound() from None
 werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 2025-08-25 21:03:19,753 | INFO | REQ 82b70831 | 127.0.0.1 | GET /favicon.ico | 500 | 3ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:11,137 | INFO | REQ fbf1cf4f | 127.0.0.1 | GET / | 200 | 8ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:11,216 | INFO | REQ c81b0794 | 127.0.0.1 | GET /static/HomeStyle.css | 304 | 66ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:11,223 | INFO | REQ a5d055a4 | 127.0.0.1 | GET /static/images/instagram-2016-2022-logo-brandlogos.net_zufpzg2mj.svg | 304 | 69ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:11,224 | INFO | REQ f644b621 | 127.0.0.1 | GET /static/images/phone.png | 304 | 67ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:11,225 | INFO | REQ 49e19164 | 127.0.0.1 | GET /static/images/Telegram-OfAicCi46_brandlogos.svg | 304 | 69ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:11,230 | ERROR | ERR 99e81d8c: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:11,233 | INFO | REQ 99e81d8c | 127.0.0.1 | GET /favicon.ico | 500 | 3ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:15,288 | INFO | REQ 87d17604 | 127.0.0.1 | GET /professor | 200 | 4ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:15,302 | INFO | REQ 0a4ede9b | 127.0.0.1 | GET /static/professor.css | 304 | 1ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:15,322 | ERROR | ERR 301be1e0: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:15,324 | INFO | REQ 301be1e0 | 127.0.0.1 | GET /favicon.ico | 500 | 2ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:26,802 | INFO | EVENT | professor_login_success | {'professor': 'AmirTabatabaei@paia.com'}
+2025-08-25 21:14:26,803 | INFO | REQ c4f5f2fd | 127.0.0.1 | POST /professor | 302 | 4ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:26,817 | INFO | REQ f28fc8d2 | 127.0.0.1 | GET /professorDashboard | 200 | 3ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:26,851 | ERROR | ERR ab5285b3: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:26,854 | INFO | REQ ab5285b3 | 127.0.0.1 | GET /favicon.ico | 500 | 2ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:29,113 | INFO | EVENT | exams_page_viewed | {'student_id': '1403111321037'}
+2025-08-25 21:14:29,121 | INFO | REQ 0d72163b | 127.0.0.1 | GET /exams | 200 | 8ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:29,134 | INFO | REQ 72aa080f | 127.0.0.1 | GET /static/exams.css | 304 | 1ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:29,152 | ERROR | ERR 778a614d: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:29,155 | INFO | REQ 778a614d | 127.0.0.1 | GET /favicon.ico | 500 | 2ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:32,481 | ERROR | ERR 6c08dee7: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:32,485 | INFO | REQ 6c08dee7 | 127.0.0.1 | GET /favicon.ico | 500 | 4ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:34,664 | INFO | REQ bab23e7e | 127.0.0.1 | GET /studentsinfo | 200 | 8ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:34,694 | ERROR | ERR 2a7f927a: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:34,697 | INFO | REQ 2a7f927a | 127.0.0.1 | GET /favicon.ico | 500 | 3ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:39,198 | ERROR | ERR a23147ea: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:39,203 | INFO | REQ a23147ea | 127.0.0.1 | GET /favicon.ico | 500 | 4ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:40,188 | ERROR | ERR 3a75b1c1: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:40,193 | INFO | REQ 3a75b1c1 | 127.0.0.1 | GET /favicon.ico | 500 | 4ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:41,395 | ERROR | ERR 7814cafd: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:41,399 | INFO | REQ 7814cafd | 127.0.0.1 | GET /favicon.ico | 500 | 4ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:43,548 | INFO | REQ 5af00bb5 | 127.0.0.1 | GET /StudentLogin | 200 | 5ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:43,561 | INFO | REQ 305bb5a0 | 127.0.0.1 | GET /static/StudentLogin.css | 304 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:14:43,577 | ERROR | ERR 5ebffd72: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:14:43,579 | INFO | REQ 5ebffd72 | 127.0.0.1 | GET /favicon.ico | 500 | 2ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:15:26,490 | INFO | EVENT | student_login_success | {'student_id': '1403111321037'}
+2025-08-25 21:15:26,491 | INFO | REQ 59222635 | 127.0.0.1 | POST /StudentLogin | 302 | 141ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:15:26,497 | INFO | EVENT | student_dashboard_access_success | {'student_id': '1403111321037'}
+2025-08-25 21:15:26,502 | INFO | REQ e873eafe | 127.0.0.1 | GET /StudentDashboard | 200 | 6ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:15:26,513 | ERROR | ERR 4a161691: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:15:26,516 | INFO | REQ 4a161691 | 127.0.0.1 | GET /dashboard.css | 500 | 2ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:15:26,566 | ERROR | ERR a8047aa1: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:15:26,569 | INFO | REQ a8047aa1 | 127.0.0.1 | GET /favicon.ico | 500 | 2ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:15:34,359 | INFO | REQ bcd4c324 | 127.0.0.1 | GET /query | 200 | 14ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:15:34,399 | ERROR | ERR a1bfeb38: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:15:34,401 | INFO | REQ a1bfeb38 | 127.0.0.1 | GET /favicon.ico | 500 | 1ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:17:35,592 | INFO | EVENT | quiz_submitted | {'student_id': '1403111321037', 'quiz': 'python quiz', 'score': 8, 'answers': {'q1': {'user': 'print', 'correct': 'print', 'is_correct': True}, 'q2': {'user': 'int', 'correct': 'int', 'is_correct': True}, 'q3': {'user': 'for', 'correct': 'for', 'is_correct': True}, 'q4': {'user': 'def', 'correct': 'def', 'is_correct': True}, 'q5': {'user': '2', 'correct': '2', 'is_correct': True}, 'q6': {'user': '555', 'correct': '555', 'is_correct': True}, 'q7': {'user': 'Lists are mutable, tuples are immutable', 'correct': 'Lists are mutable, tuples are immutable', 'is_correct': True}, 'q8': {'user': 'none', 'correct': '5', 'is_correct': False}, 'q9': {'user': 'import sqrt from math', 'correct': 'from math import sqrt', 'is_correct': False}, 'q10': {'user': '4', 'correct': '4', 'is_correct': True}}}
+2025-08-25 21:17:35,599 | INFO | REQ 2c4e3e63 | 127.0.0.1 | POST /query | 200 | 8ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-08-25 21:17:35,632 | ERROR | ERR 17c5fbd1: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-08-25 21:17:35,634 | INFO | REQ 17c5fbd1 | 127.0.0.1 | GET /favicon.ico | 500 | 2ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
