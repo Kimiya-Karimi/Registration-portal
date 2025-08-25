@@ -478,6 +478,7 @@ def mycourses():
 def query():
     student_id = session.get("student_id")
     if not student_id:
+        log_event("quiz_access_denied", reason="not_logged_in", student_id=student_id)
         return redirect(url_for("StudentLogin"))
 
     student_path = os.path.join(app.root_path, 'data', 'students.json')
@@ -528,6 +529,12 @@ def query():
             results = question_results
             message = f"Python exam submitted! Score: {score}/10"
 
+            log_event("quiz_submitted",
+                      student_id=student_id,
+                      quiz="python quiz",
+                      score=score,
+                      answers=question_results)
+
         elif "cppForm" in form:
             score = 0
             question_results = {}
@@ -541,12 +548,16 @@ def query():
             results = question_results
             message = f"C++ exam submitted! Score: {score}/10"
 
+            log_event("quiz_submitted",
+                      student_id=student_id,
+                      quiz="C++ quiz",
+                      score=score,
+                      answers=question_results)
+
         students[student_id] = student
         DataManager.save_data(students, student_path)
 
     return render_template("query.html", student=student, message=message, results=results)
-
-
 
 
 @app.route('/project', methods=["GET"])
@@ -568,7 +579,7 @@ def coursecontent(course_name):
     courses_content = DataManager.load_data(courses_content_path)
 
     course = courses_content.get(course_name_decoded)
-
+    log_event("course_content_viewed", course_name=course_name_decoded, student_id=session.get("student_id"))
     return render_template('coursecontent.html', course_name=course_name_decoded, course=course,  enumerate=enumerate)
 
 
@@ -580,8 +591,11 @@ def professor():
         admins_path = os.path.join(app.root_path, 'data', 'professor.json')
         admins = DataManager.load_data(admins_path)
         if email.endswith('@paia.com') and email in admins and admins[email] == password:
+            session['professor_id'] = email  
+            log_event("professor_login_success", professor=email)
             return redirect(url_for('professorDashboard'))
         else:
+            log_event("professor_login_failed", professor=email)
             error = "incorrect email or password!"
             return render_template("professor.html", error=error)
     return render_template("professor.html")
@@ -618,32 +632,33 @@ def exams():
             "name": f"{data['first name']} {data['last name']}",
             "quizzes": data.get("quizzes", {})
         }
+    viewer_id = session.get("student_id") or session.get("professor_id")
+    log_event("exams_page_viewed", student_id=viewer_id)
+    
     return render_template("exams.html", student_scores=student_scores)
-
 
 @app.route("/submit_exam", methods=["POST"])
 def submit_exam():
-    STUDENT_JSON = "data/student.json"
+    students_path = os.path.join(app.root_path, "data", "students.json")
     data = request.json
     username = data.get("username")  
     exam_type = data.get("exam")     
     score = data.get("score")
 
-    students = DataManager.load_data(STUDENT_JSON)
-    
-    for student in students:
-        if student["username"] == username:
-            if "exams" not in student:
-                student["exams"] = {}
-            student["exams"][exam_type] = {
-                "score": score,
-            }
+    students = DataManager.load_data(students_path)
+
+    for sid, student in students.items():
+        if student.get("username") == username:
+            student.setdefault("exams", {})
+            student["exams"][exam_type] = {"score": score}
             break
     else:
         return jsonify({"status": "error", "msg": "student not found"}), 404
 
-    DataManager.save_data(STUDENT_JSON, students)
+    DataManager.save_data(students, students_path)
     return jsonify({"status": "success"})
+
+
 if __name__ == "__main__":
     app.run(debug=True)
     
