@@ -37,7 +37,7 @@
 
     <div class="tab-content" id="examTabContent">
       <div class="tab-pane fade show active" id="python" role="tabpanel">
-        <form method="POST">
+        <form id="pythonForm" method="POST">
           <input type="hidden" name="pythonForm" value="1">
           
           <div class="mb-3">
@@ -170,8 +170,9 @@
           </ul>
         {% endif %}
       </div>
+    
       <div class="tab-pane fade" id="cpp" role="tabpanel">
-        <form method="POST">
+        <form id="cppForm" method="POST">
           <input type="hidden" name="cppForm" value="1">
 
           <div class="mb-3">
@@ -373,7 +374,7 @@
         finishForm(currentForm);
         alert("Time is up! Your current answers have been submitted.");
       }
-    }, 1000);
+    },1000);
   }
 
   document.querySelectorAll('button[data-bs-toggle="tab"]').forEach(tab => {
