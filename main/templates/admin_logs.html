@@ -1,0 +1,17 @@
+{% extends "admin_layout.html" %}
+
+{% block content %}
+<div class="card shadow p-3">
+  <h3> Logs</h3>
+  <div style="max-height: 500px; overflow-y: auto; background: #111; color: rgb(255, 255, 255); font-family: monospace; padding: 10px;">
+    {% for line in logs %}
+      <div>{{ line.strip() }}</div>
+    {% endfor %}
+  </div>
+</div>
+<script>
+  setInterval(() => {
+    location.reload();
+  }, 10000);
+</script>
+{% endblock %}

@@ -1118,3 +1118,599 @@ Traceback (most recent call last):
     raise NotFound() from None
 werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
 2025-08-25 21:17:35,634 | INFO | REQ 17c5fbd1 | 127.0.0.1 | GET /favicon.ico | 500 | 2ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/139.0.0.0 Safari/537.36 Edg/139.0.0.0
+2025-09-10 02:13:47,273 | INFO | REQ 7ad696bd | 127.0.0.1 | GET / | 200 | 8ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:13:47,413 | INFO | REQ 7092f765 | 127.0.0.1 | GET /static/HomeStyle.css | 304 | 68ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:13:47,438 | INFO | REQ 79c7f387 | 127.0.0.1 | GET /static/images/phone.png | 304 | 17ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:13:47,439 | INFO | REQ 1317d474 | 127.0.0.1 | GET /static/images/instagram-2016-2022-logo-brandlogos.net_zufpzg2mj.svg | 304 | 74ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:13:47,446 | INFO | REQ 383920fc | 127.0.0.1 | GET /static/images/Telegram-OfAicCi46_brandlogos.svg | 304 | 78ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:13:47,526 | ERROR | ERR 62f5516b: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-09-10 02:13:47,563 | INFO | REQ 62f5516b | 127.0.0.1 | GET /favicon.ico | 500 | 37ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:13:52,022 | INFO | REQ bda24062 | 127.0.0.1 | GET /AdminLogin | 200 | 33ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:13:52,044 | INFO | REQ 57c9b017 | 127.0.0.1 | GET /static/AdminLogin.css | 304 | 1ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:13:52,118 | ERROR | ERR fb5ab45f: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-09-10 02:13:52,133 | INFO | REQ fb5ab45f | 127.0.0.1 | GET /favicon.ico | 500 | 15ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:14:02,868 | INFO | EVENT | admin_login_success | {'email': 'kimia@paia.com'}
+2025-09-10 02:14:02,869 | INFO | REQ db01f15d | 127.0.0.1 | POST /AdminLogin | 302 | 10ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:14:02,991 | ERROR | ERR 288bbba0: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 72, in AdminDashboard
+    return render_template("AdminDashboard.html")
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\AdminDashboard.html", line 150, in top-level template code
+    <a href="{{ url_for('admin_logs') }}">Logs</a>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin_logs'. Did you mean 'AdminLogin' instead?
+2025-09-10 02:14:03,012 | INFO | REQ 288bbba0 | 127.0.0.1 | GET /AdminDashboard | 500 | 129ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:14:03,078 | ERROR | ERR 1a02fd64: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-09-10 02:14:03,085 | INFO | REQ 1a02fd64 | 127.0.0.1 | GET /favicon.ico | 500 | 6ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:15:39,699 | ERROR | ERR c08ac496: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 72, in AdminDashboard
+    return render_template("AdminDashboard.html")
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\AdminDashboard.html", line 150, in top-level template code
+    <a href="{{ url_for('admin_logs') }}">Logs</a>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin_logs'. Did you mean 'AdminLogin' instead?
+2025-09-10 02:15:39,709 | INFO | REQ c08ac496 | 127.0.0.1 | GET /AdminDashboard | 500 | 13ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:15:39,764 | ERROR | ERR 77cf2b9a: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-09-10 02:15:39,769 | INFO | REQ 77cf2b9a | 127.0.0.1 | GET /favicon.ico | 500 | 4ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:18:00,022 | ERROR | ERR 8ebeaf5b: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 72, in AdminDashboard
+    return render_template("AdminDashboard.html")
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\AdminDashboard.html", line 150, in top-level template code
+    <a href="{{ url_for('admin_logs') }}">Logs</a>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin_logs'. Did you mean 'AdminLogin' instead?
+2025-09-10 02:18:00,034 | INFO | REQ 8ebeaf5b | 127.0.0.1 | GET /AdminDashboard | 500 | 28ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:18:00,066 | INFO | REQ 2ed97f50 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:18:00,838 | ERROR | ERR 7de2a251: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 72, in AdminDashboard
+    return render_template("AdminDashboard.html")
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\AdminDashboard.html", line 150, in top-level template code
+    <a href="{{ url_for('admin_logs') }}">Logs</a>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin_logs'. Did you mean 'AdminLogin' instead?
+2025-09-10 02:18:00,849 | INFO | REQ 7de2a251 | 127.0.0.1 | GET /AdminDashboard | 500 | 15ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:18:00,888 | INFO | REQ f91e7519 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:18:16,028 | ERROR | ERR 71187aec: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 72, in AdminDashboard
+    return render_template("AdminDashboard.html")
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\AdminDashboard.html", line 150, in top-level template code
+    <a href="{{ url_for('admin_logs') }}">Logs</a>
+    ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1121, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 1110, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+        endpoint,
+    ...<3 lines>...
+        force_external=_external,
+    )
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 924, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'admin_logs'. Did you mean 'AdminLogin' instead?
+2025-09-10 02:18:16,037 | INFO | REQ 71187aec | 127.0.0.1 | GET /AdminDashboard | 500 | 11ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:18:16,073 | INFO | REQ d34bbb09 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:19:37,048 | INFO | REQ fb7c2323 | 127.0.0.1 | GET /AdminDashboard | 200 | 12ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:19:37,253 | INFO | REQ 40012d33 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:19:39,463 | ERROR | ERR 0091e007: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 668, in admin_logs
+    return render_template("admin_logs.html", logs=logs)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_layout.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 65, in get_source
+    return self._get_source_fast(environment, template)
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 99, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: admin_layout.html
+2025-09-10 02:19:39,474 | INFO | REQ 0091e007 | 127.0.0.1 | GET /AdminLogs | 500 | 159ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:19:39,527 | INFO | REQ 7cb103c8 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:21:53,938 | INFO | REQ 99690f3c | 127.0.0.1 | GET /AdminLogs | 200 | 57ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:21:54,026 | INFO | REQ 2736588b | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:21:56,016 | INFO | REQ 4d4c8e0d | 127.0.0.1 | GET /AdminLogs | 200 | 39ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:21:56,092 | INFO | REQ 3b11445b | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:21:57,018 | INFO | REQ 0cfd9461 | 127.0.0.1 | GET /AdminLogs | 200 | 21ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:21:57,101 | INFO | REQ aa7b3489 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:06,655 | INFO | REQ d6ab1adc | 127.0.0.1 | GET /administrator | 200 | 14ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:06,694 | INFO | REQ ead752e4 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:10,391 | INFO | REQ 3000a90e | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:12,704 | INFO | REQ 6015e0c7 | 127.0.0.1 | GET /students | 200 | 23ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:12,807 | INFO | REQ 0a798c2b | 127.0.0.1 | GET /static/students.css | 304 | 87ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:12,835 | INFO | REQ d0fff9f5 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:14,853 | INFO | REQ cbbb306d | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:16,213 | INFO | REQ f7437a39 | 127.0.0.1 | GET /report | 200 | 21ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:16,289 | INFO | REQ 97ecdc8b | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:18,848 | INFO | REQ f3bde568 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:20,453 | INFO | REQ 52490bd0 | 127.0.0.1 | GET /Addcourse | 200 | 12ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:20,501 | INFO | REQ f4e95ffd | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 02:22:25,505 | INFO | REQ 71cb046f | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:30,040 | INFO | REQ 5a2c9508 | 127.0.0.1 | GET / | 200 | 30ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:30,133 | INFO | REQ b66db714 | 127.0.0.1 | GET /static/HomeStyle.css | 304 | 63ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:30,159 | INFO | REQ efac43c0 | 127.0.0.1 | GET /static/images/phone.png | 304 | 17ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:30,181 | INFO | REQ c49f22c5 | 127.0.0.1 | GET /static/images/instagram-2016-2022-logo-brandlogos.net_zufpzg2mj.svg | 304 | 94ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:30,204 | INFO | REQ 2e420e0b | 127.0.0.1 | GET /static/images/Telegram-OfAicCi46_brandlogos.svg | 304 | 109ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:30,293 | INFO | REQ 8f4b811e | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:34,643 | INFO | REQ aca6d0a6 | 127.0.0.1 | GET /AdminLogin | 200 | 37ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:34,661 | INFO | REQ 9e823507 | 127.0.0.1 | GET /static/AdminLogin.css | 304 | 1ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:34,731 | INFO | REQ 17c0eb84 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:42,663 | INFO | EVENT | admin_login_success | {'email': 'kimia@paia.com'}
+2025-09-10 06:40:42,665 | INFO | REQ 1eb28686 | 127.0.0.1 | POST /AdminLogin | 302 | 20ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:42,719 | INFO | REQ e04e16e1 | 127.0.0.1 | GET /AdminDashboard | 200 | 43ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:42,885 | INFO | REQ 80a6b812 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:46,634 | ERROR | ERR 93142e0f: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 668, in admin_logs
+    return render_template("admin_logs.html", logs=logs)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 972 more times]
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1496, in is_up_to_date
+    return self._uptodate()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\loaders.py", line 221, in uptodate
+    return os.path.getmtime(filename) == mtime
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^
+RecursionError: maximum recursion depth exceeded
+2025-09-10 06:40:46,871 | ERROR | ERR bde9f57a: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 668, in admin_logs
+    return render_template("admin_logs.html", logs=logs)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 972 more times]
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1496, in is_up_to_date
+    return self._uptodate()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\loaders.py", line 221, in uptodate
+    return os.path.getmtime(filename) == mtime
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^
+RecursionError: maximum recursion depth exceeded
+2025-09-10 06:40:47,243 | ERROR | ERR 21e58344: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 668, in admin_logs
+    return render_template("admin_logs.html", logs=logs)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 972 more times]
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1496, in is_up_to_date
+    return self._uptodate()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\loaders.py", line 221, in uptodate
+    return os.path.getmtime(filename) == mtime
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^
+RecursionError: maximum recursion depth exceeded
+2025-09-10 06:40:47,334 | INFO | REQ 93142e0f | 127.0.0.1 | GET /AdminLogs | 500 | 998ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:47,692 | INFO | REQ bde9f57a | 127.0.0.1 | GET /AdminLogs | 500 | 1190ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:47,998 | INFO | REQ 21e58344 | 127.0.0.1 | GET /AdminLogs | 500 | 1267ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:48,051 | INFO | REQ 1fd0e498 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:52,649 | INFO | REQ 61105f34 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:55,058 | ERROR | ERR 48224fb3: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 668, in admin_logs
+    return render_template("admin_logs.html", logs=logs)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 972 more times]
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1496, in is_up_to_date
+    return self._uptodate()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\loaders.py", line 221, in uptodate
+    return os.path.getmtime(filename) == mtime
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^
+RecursionError: maximum recursion depth exceeded
+2025-09-10 06:40:55,350 | INFO | REQ 48224fb3 | 127.0.0.1 | GET /AdminLogs | 500 | 531ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:55,414 | INFO | REQ 9c01d582 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:40:57,195 | INFO | REQ 7f02ccd6 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:42:20,234 | INFO | REQ fc5e24ad | 127.0.0.1 | GET /AdminDashboard | 200 | 97ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:42:20,307 | INFO | REQ 5b170d26 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:42:21,991 | ERROR | ERR fbac6df0: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\app.py", line 668, in admin_logs
+    return render_template("admin_logs.html", logs=logs)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\user\Desktop\course-portal\main\templates\admin_logs.html", line 1, in top-level template code
+    {% extends "admin_logs.html" %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  [Previous line repeated 972 more times]
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\environment.py", line 1496, in is_up_to_date
+    return self._uptodate()
+           ~~~~~~~~~~~~~~^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\jinja2\loaders.py", line 221, in uptodate
+    return os.path.getmtime(filename) == mtime
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^
+RecursionError: maximum recursion depth exceeded
+2025-09-10 06:42:22,228 | INFO | REQ fbac6df0 | 127.0.0.1 | GET /AdminLogs | 500 | 387ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:42:22,279 | INFO | REQ 6c20d821 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:42:25,450 | INFO | REQ a2b18f9b | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:45:28,192 | INFO | REQ 24975344 | 127.0.0.1 | GET /AdminDashboard | 200 | 3ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:45:28,282 | INFO | REQ 725ad805 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:45:29,613 | INFO | REQ 804a4b72 | 127.0.0.1 | GET /AdminLogs | 200 | 109ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:45:29,688 | INFO | REQ f0a9a921 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:29,588 | INFO | REQ efbd4f53 | 127.0.0.1 | GET /AdminLogs | 200 | 67ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:29,775 | INFO | REQ 8b81cae5 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:39,694 | INFO | REQ 56258ca5 | 127.0.0.1 | GET /AdminLogs | 200 | 52ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:39,894 | INFO | REQ 26eeec78 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:41,294 | ERROR | ERR cfabdeca: Unhandled exception
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 891, in dispatch_request
+    self.raise_routing_exception(req)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\app.py", line 500, in raise_routing_exception
+    raise request.routing_exception  # type: ignore[misc]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\flask\ctx.py", line 362, in match_request
+    result = self.url_adapter.match(return_rule=True)  # type: ignore
+  File "C:\Users\user\Desktop\course-portal\main\.venv\Lib\site-packages\werkzeug\routing\map.py", line 629, in match
+    raise NotFound() from None
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+2025-09-10 06:46:41,382 | INFO | REQ cfabdeca | 127.0.0.1 | GET /Dashboard | 500 | 87ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:41,437 | INFO | REQ 13ac0cd3 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:43,108 | INFO | REQ fae48589 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:50,080 | INFO | REQ 544d9835 | 127.0.0.1 | GET /AdminLogs | 200 | 28ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:46:50,282 | INFO | REQ da43a7f2 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:01,112 | INFO | REQ d9523f48 | 127.0.0.1 | GET /AdminLogs | 200 | 33ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:01,342 | INFO | REQ fe4230a0 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:12,169 | INFO | REQ 147477f5 | 127.0.0.1 | GET /AdminLogs | 200 | 109ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:12,400 | INFO | REQ 032091fe | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:14,425 | INFO | REQ 68d69db5 | 127.0.0.1 | GET /AdminLogs | 200 | 45ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:14,541 | INFO | REQ 5c9f8578 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:15,363 | INFO | REQ a0e3e0f3 | 127.0.0.1 | GET /AdminLogs | 200 | 47ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:15,480 | INFO | REQ b3149283 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:16,447 | INFO | REQ 2a21ca23 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:19,057 | INFO | REQ 252284e5 | 127.0.0.1 | GET /AdminDashboard | 200 | 3ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:19,143 | INFO | REQ 9dbcff67 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:20,830 | INFO | REQ e66e273a | 127.0.0.1 | GET /AdminLogs | 200 | 53ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:20,967 | INFO | REQ 2c2b82b2 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:31,123 | INFO | REQ 81f73110 | 127.0.0.1 | GET /AdminLogs | 200 | 61ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:31,302 | INFO | REQ 50b4c986 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:42,181 | INFO | REQ 54e718f6 | 127.0.0.1 | GET /AdminLogs | 200 | 107ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:42,371 | INFO | REQ 2c38b4b3 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:53,105 | INFO | REQ d8c97e76 | 127.0.0.1 | GET /AdminLogs | 200 | 39ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:53,299 | INFO | REQ 6a3de8c9 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:58,118 | INFO | REQ e7089169 | 127.0.0.1 | GET /AdminLogs | 200 | 94ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:47:58,236 | INFO | REQ 4f46155d | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:09,111 | INFO | REQ 86f3af5d | 127.0.0.1 | GET /AdminLogs | 200 | 47ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:09,291 | INFO | REQ 2f8aedc4 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:20,107 | INFO | REQ 84e1e60a | 127.0.0.1 | GET /AdminLogs | 200 | 46ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:20,227 | INFO | REQ d63dc349 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:21,939 | INFO | REQ 1c2ad02a | 127.0.0.1 | GET /AdminLogs | 200 | 44ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:22,081 | INFO | REQ ae18ee24 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:22,911 | INFO | REQ 43b5c49b | 127.0.0.1 | GET /AdminLogs | 200 | 44ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:23,016 | INFO | REQ 7959ee22 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:33,112 | INFO | REQ 4e7265c8 | 127.0.0.1 | GET /AdminLogs | 200 | 47ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:33,287 | INFO | REQ 4ef52bd0 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:44,130 | INFO | REQ 960ac03c | 127.0.0.1 | GET /AdminLogs | 200 | 54ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:44,326 | INFO | REQ b00d1354 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:55,148 | INFO | REQ 9de773b0 | 127.0.0.1 | GET /AdminLogs | 200 | 80ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:48:55,338 | INFO | REQ c0f39f72 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:06,111 | INFO | REQ 214eca02 | 127.0.0.1 | GET /AdminLogs | 200 | 46ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:06,307 | INFO | REQ bd7d8472 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:17,145 | INFO | REQ 9831ba82 | 127.0.0.1 | GET /AdminLogs | 200 | 79ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:17,354 | INFO | REQ 8d24ed7a | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:25,736 | INFO | REQ b6836bad | 127.0.0.1 | GET /AdminLogs | 200 | 78ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:25,861 | INFO | REQ bb1f7320 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:35,850 | INFO | REQ 86312fe1 | 127.0.0.1 | GET /AdminLogs | 200 | 62ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:35,981 | INFO | REQ 0b87b635 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:45,653 | INFO | REQ 02d16dd1 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:48,609 | INFO | REQ a4419b7f | 127.0.0.1 | GET /AdminLogs | 200 | 52ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:48,720 | INFO | REQ 280268d2 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:49:51,479 | INFO | REQ d2961372 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:18,630 | INFO | REQ b07ad518 | 127.0.0.1 | GET /AdminDashboard | 200 | 10ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:18,703 | INFO | REQ 54d24e15 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:20,054 | INFO | REQ 9ca48066 | 127.0.0.1 | GET /AdminLogs | 200 | 77ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:20,158 | INFO | REQ fdcbf963 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:31,155 | INFO | REQ 71058cb5 | 127.0.0.1 | GET /AdminLogs | 200 | 77ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:31,352 | INFO | REQ 48c94134 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:35,288 | INFO | REQ d1171e71 | 127.0.0.1 | GET /AdminLogs | 200 | 46ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:35,429 | INFO | REQ a6196f28 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:36,327 | INFO | REQ dca48748 | 127.0.0.1 | GET /AdminLogs | 200 | 53ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:36,452 | INFO | REQ bd8b5eb7 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:47,119 | INFO | REQ 3230650c | 127.0.0.1 | GET /AdminLogs | 200 | 51ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:47,319 | INFO | REQ aefca1ca | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:51,834 | INFO | REQ 3df9b44a | 127.0.0.1 | GET /AdminLogs | 200 | 80ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:51,944 | INFO | REQ d6280c91 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:52,707 | INFO | REQ fb561962 | 127.0.0.1 | GET /AdminLogs | 200 | 47ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:50:52,818 | INFO | REQ fafe01ee | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:51:03,122 | INFO | REQ 75ec4252 | 127.0.0.1 | GET /AdminLogs | 200 | 49ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:51:03,321 | INFO | REQ 49210d66 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:51:08,381 | INFO | REQ a487ceb4 | 127.0.0.1 | GET /AdminLogs | 200 | 76ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:51:08,503 | INFO | REQ 0dc36c87 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:51:19,109 | INFO | REQ 8a65d56a | 127.0.0.1 | GET /AdminLogs | 200 | 50ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:51:19,309 | INFO | REQ 9042efce | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:51:30,115 | INFO | REQ 2b41e811 | 127.0.0.1 | GET /AdminLogs | 200 | 47ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0
+2025-09-10 06:51:30,315 | INFO | REQ f48295d3 | 127.0.0.1 | GET /favicon.ico | 204 | 0ms | UA=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36 Edg/140.0.0.0

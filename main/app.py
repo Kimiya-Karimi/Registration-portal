@@ -657,6 +657,30 @@ def submit_exam():
 
     DataManager.save_data(students, students_path)
     return jsonify({"status": "success"})
+@app.route("/AdminLogs")
+def admin_logs():
+    log_file = "logs/app.log"  
+    try:
+        with open(log_file, "r", encoding="utf-8") as f:
+            logs = f.readlines()
+    except FileNotFoundError:
+        logs = ["Log file not found."]
+    return render_template("admin_logs.html", logs=logs)
+
+@app.route("/admin/logs")
+def show_logs():
+    log_path = os.path.join(app.root_path,"data", "logs", "app.log")
+
+    if not os.path.exists(log_path):
+        return render_template("admin_logs.html", logs=["No logs yet!"])
+
+    with open(log_path, "r", encoding="utf-8") as f:
+        logs = f.readlines()[-200:]  
+
+    return render_template("admin_logs.html", logs=logs)
+@app.route('/favicon.ico')
+def favicon():
+    return '', 204 
 
 
 if __name__ == "__main__":

@@ -414,9 +414,13 @@
         "national ID": "2581720301",
         "student ID": "1403010121006",
         "semester": "2",
-        "course list": [],
+        "course list": [
+            "Calculus 1"
+        ],
         "registered_courses": [],
-        "paid_courses": [],
+        "paid_courses": [
+            "Calculus 1"
+        ],
         "quizzes": {
             "python quiz": 6,
             "C++ quiz": 9

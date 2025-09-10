@@ -1,8 +1,8 @@
 {
     "Calculus 1": {
         "credit": 3,
-        "capacity": 39,
-        "occupied": 9,
+        "capacity": 38,
+        "occupied": 10,
         "prequisites": "",
         "price": 60
     },
@@ -145,5 +145,13 @@
         "occupied": 4,
         "prequisites": "",
         "price": 35
+    },
+    "Hh": {
+        "credit": "3",
+        "capacity": "59",
+        "occupied": "7",
+        "prerequisites": "",
+        "price": "50",
+        "classes": "monday-14:00"
     }
 }
